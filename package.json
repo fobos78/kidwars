@@ -1,0 +1,23 @@
+{
+  "name": "kidwars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fobos78/kidwars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fobos78/kidwars/issues"
+  },
+  "homepage": "https://github.com/fobos78/kidwars#readme",
+  "dependencies": {
+   
+  }
+}
