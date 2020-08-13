@@ -6,7 +6,7 @@ import fS from 'session-file-store';
 
 import indexRouter from './routes/index.js';
 import loginRouter from './routes/login.js';
-import singInRouter from './routes/sing_in.js';
+import singInRouter from './routes/singin.js';
 import taskRouter from './routes/task.js';
 import editRouter from './routes/edit.js';
 
@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/sing_in', singInRouter);
+app.use('/api/singin', singInRouter);
 app.use('/task', taskRouter);
 app.use('/edit', editRouter);
 
