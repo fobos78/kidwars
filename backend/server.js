@@ -6,6 +6,7 @@ import fS from 'session-file-store';
 
 import indexRouter from './routes/index.js';
 import loginRouter from './routes/login.js';
+import logoutRouter from './routes/logout.js';
 import singInRouter from './routes/singin.js';
 import taskRouter from './routes/task.js';
 import editRouter from './routes/edit.js';
@@ -34,8 +35,9 @@ app.use(
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
 app.use('/api/singin', singInRouter);
+app.use('/api/login', loginRouter);
+app.use('/api/logout', logoutRouter);
 app.use('/task', taskRouter);
 app.use('/edit', editRouter);
 
