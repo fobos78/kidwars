@@ -1,4 +1,4 @@
-import { ADD_SCORE } from './actonsType';
+import { ADD_SCORE } from './actionsType';
 
 export function addScore(data) {
   return {
