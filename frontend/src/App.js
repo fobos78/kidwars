@@ -1,24 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import SingIn from './singin';
+import Login from './login';
+import Logout from './logout';
 import store from './redux/store';
 
 function App() {
+  const auth = JSON.parse(window.localStorage.getItem('auth'));
+
   return (
     <Provider store={store}>
       <Router>
+        <>
+          {(auth)
+            ? <div><Link to="/logout">Выйти</Link></div>
+            : (
+              <>
+                <div><Link to="/login">Войти</Link></div>
+                <div><Link to="/singin">Зарегистрироваться</Link></div>
+              </>
+            )}
+        </>
         <Switch>
-<<<<<<< HEAD
           <Route path="/" />
         </Switch>
         <Switch>
           <Route path="/singin">
             <SingIn />
-=======
-          <Route path="/">
-            hello
->>>>>>> e3b3b4112eb75d987a7a1f0c2882d9fb699bece9
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
         </Switch>
       </Router>
