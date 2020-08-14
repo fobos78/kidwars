@@ -1,6 +1,10 @@
-import { SUCCESS_AUTH, ADD_SCORE } from '../actionsType';
+import { SUCCESS_AUTH, LOGOUT, ADD_SCORE  } from '../actionsType';
 
-const init = { email: 'a@a.a', score: 0 };
+const init = {
+  email: JSON.parse(window.localStorage.getItem('userEmail')) || '',
+  auth: JSON.parse(window.localStorage.getItem('auth')) || false,
+  score: 0,
+};
 
 export default function reducer(state = init, action) {
   switch (action.type) {
@@ -8,6 +12,12 @@ export default function reducer(state = init, action) {
       return {
         ...state,
         ...action.payload,
+        auth: true,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        auth: false,
       };
     case ADD_SCORE:
       return {

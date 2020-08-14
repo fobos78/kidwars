@@ -51,6 +51,10 @@ app.use('/api/logout', logoutRouter);
 app.use('/tasks', taskRouter);
 app.use('/edit', editRouter);
 
+app.use((err, req, res, next) => {
+  console.log(err);
+})
+
 app.listen(process.env.PORT ?? 3001);
 
 // Подключаем библиотеку для работы с Telegram API в переменную

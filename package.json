@@ -7,7 +7,7 @@
     "build": "cd frontend && yarn build",
     "start": "cd backend && node server.js",
     "dev": "run-p dev-server dev-client",
-    "dev-server": "cd backend && nodemon server.js",
+    "dev-server": "cd backend && nodemon server.js --ignore sessions",
     "dev-client": "cd frontend && yarn start"
   },
   "repository": {

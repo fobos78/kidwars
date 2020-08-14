@@ -43,7 +43,6 @@ function SingIn() {
     });
     const resp = await responce.json();
     if (resp.message === 'success') {
-      console.log(resp.user);
       dispatch(auth(resp.user));
       history.push('/config');
       window.localStorage.setItem('auth', JSON.stringify(true));
