@@ -1,9 +1,15 @@
-import { SUCCESS_AUTH } from './actionsType';
+import { SUCCESS_AUTH, LOGOUT } from './actionsType';
 
 export function auth(user) {
   return {
     type: SUCCESS_AUTH,
     payload: user,
+  };
+}
+
+export function logout() {
+  return {
+    type: LOGOUT,
   };
 }
 

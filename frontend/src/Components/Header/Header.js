@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
-  const auth = JSON.parse(window.localStorage.getItem('auth'));
+  const status = useSelector((state) => state.user.auth);
+  const [auth, setAuth] = useState(status);
+
+  useEffect(() => {
+    setAuth(status);
+  }, [status]);
+
   return (
     <div className="Header">
       {!auth ? (
@@ -11,7 +18,7 @@ function Header() {
           <span><Link to="/singin"> Зарегистрироваться</Link></span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span><Link to="/login">Войти</Link></span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </>
       ) : (
         <>

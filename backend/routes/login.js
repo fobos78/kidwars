@@ -14,8 +14,8 @@ router.post('/', async (req, res) => {
   if (newUser && await bcrypt.compare(password, newUser.password)) {
     req.session.user = newUser;
     const message = 'success';
-    const userEmail = newUser.email;
-    res.json({ message, userEmail });
+    const user = { email: newUser.email, score: newUser.score, access: newUser.access };
+    res.json({ message, user });
   } else {
     const message = 'Неверный логин или пароль';
     res.json({ message });
