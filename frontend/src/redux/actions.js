@@ -1,4 +1,4 @@
-import { SUCCESS_AUTH, LOGOUT } from './actionsType';
+import { SUCCESS_AUTH, LOGOUT, ADD_SCORE } from './actionsType';
 
 export function auth(user) {
   return {
@@ -13,9 +13,9 @@ export function logout() {
   };
 }
 
-export function auth1(user) {
+export function addScore(score) {
   return {
-    type: SUCCESS_AUTH,
-    payload: user,
+    type: ADD_SCORE,
+    payload: score,
   };
 }
