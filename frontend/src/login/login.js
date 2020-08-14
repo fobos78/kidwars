@@ -41,7 +41,7 @@ function Login() {
     const resp = await responce.json();
     if (resp.message === 'success') {
       // dispatch({ type: 'success_login', email: resp.userEmail });
-      history.push('/task');
+      history.push('/tasks');
       window.localStorage.setItem('auth', JSON.stringify(true));
       window.localStorage.setItem('userEmail', JSON.stringify(resp.userEmail));
     } else {

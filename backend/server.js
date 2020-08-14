@@ -9,14 +9,9 @@ import fetch from 'node-fetch';
 
 import indexRouter from './routes/index.js';
 import loginRouter from './routes/login.js';
-<<<<<<< HEAD
-import singInRouter from './routes/singin.js';
-import tasksRouter from './routes/tasks.js';
-=======
 import logoutRouter from './routes/logout.js';
 import singInRouter from './routes/singin.js';
-import taskRouter from './routes/task.js';
->>>>>>> 24195817b43ff0b22fee6da33100b5be7fa9d2a7
+import taskRouter from './routes/tasks.js';
 import editRouter from './routes/edit.js';
 
 dotenv.config();
@@ -50,16 +45,10 @@ app.use(
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-<<<<<<< HEAD
-app.use('/login', loginRouter);
-app.use('/sing_in', singInRouter);
-app.use('/tasks', tasksRouter);
-=======
 app.use('/api/singin', singInRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
-app.use('/task', taskRouter);
->>>>>>> 24195817b43ff0b22fee6da33100b5be7fa9d2a7
+app.use('/tasks', taskRouter);
 app.use('/edit', editRouter);
 
 app.listen(process.env.PORT ?? 3001);

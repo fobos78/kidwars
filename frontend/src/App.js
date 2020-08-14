@@ -1,53 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import store from './redux/store';
+import Config from './Components/Config';
+import Footer from './Footer';
+import Main from './Main';
 import SingIn from './singin';
 import Login from './login';
 import Logout from './logout';
-import store from './redux/store';
-import Tasks from './components/Tasks';
-import './App.css';
+import Header from './Components/Header';
+import Tasks from './Components/Tasks';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 function App() {
-  const auth = JSON.parse(window.localStorage.getItem('auth'));
-
   return (
     <Provider store={store}>
       <Router>
-        <header className="header">
-          {(auth)
-            ? <div><Link to="/logout">Выйти</Link></div>
-            : (
-              <>
-                <div><Link to="/login">Войти</Link></div>
-                <div><Link to="/singin">Зарегистрироваться</Link></div>
-              </>
-            )}
-        </header>
+        <Header />
         <Switch>
-          <Route path="/" />
-        </Switch>
-        <Switch>
-
+          <Route path="/config">
+            <Config />
+          </Route>
+          <Route path="/singin">
+            <SingIn />
+          </Route>
           <Route path="/tasks">
             <Tasks />
-            </Route>
-            <Route path="/singin">
-              <SingIn />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/logout">
-              <Logout />
-            </Route>
-
-      </Router>
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
+          <Main />
+          <Route path="/" />
         </Switch>
+        <Footer />
+      </Router>
     </Provider>
   );
 }
