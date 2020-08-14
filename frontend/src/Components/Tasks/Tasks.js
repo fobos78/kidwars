@@ -2,14 +2,17 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addScore } from '../../redux/actions';
 
 function Tasks() {
   const [task, setTask] = useState([]);
   const [themeTask, setThemeTask] = useState('');
   const [question, setQuestion] = useState('');
   const [flag, setFlag] = useState('');
-  const [count, setCount] = useState(0);
 
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.user);
   useEffect(() => {
     (async () => {
       const response = await fetch('/tasks', {
@@ -29,7 +32,7 @@ function Tasks() {
   function answerTrue(ans, ansTrue, e) {
     if (ans === ansTrue) {
       setFlag('Верный ответ!');
-      setCount(count + 1);
+      dispatch(addScore(userState.score + 1));
       e.target.parentNode.remove();
     } else {
       setFlag('Ответ не верный!');
@@ -46,7 +49,7 @@ function Tasks() {
       <div>
         Колличество очков:
         {' '}
-        {count}
+        {userState.score}
       </div>
       <div>
         {task.map((elem, i) => (
