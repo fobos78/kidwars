@@ -45,19 +45,16 @@ app.use('/edit', editRouter);
 
 app.listen(process.env.PORT ?? 3001);
 
-
-
 // Подключаем библиотеку для работы с Telegram API в переменную
 
 // Устанавливаем токен, который выдавал нам бот
-var token = '1112279415:AAGobWm61FyW2HoU5NQrKE2LkwZH_R8x6vo';
-// Включить опрос сервера. Бот должен обращаться к серверу Telegram, чтобы получать актуальную информацию
-// Подробнее: https://core.telegram.org/bots/api#getupdates
-var bot = new TelegramBot(token, { polling: true });
+const token = '1112279415:AAGobWm61FyW2HoU5NQrKE2LkwZH_R8x6vo';
+
+const bot = new TelegramBot(token, { polling: true });
 
 const sait = 'https://random.dog/woof.json';
 const test = 'http://localhost:3001/';
-//const sait = 'https://www.cbr-xml-daily.ru/daily_json.js';
+// const sait = 'https://www.cbr-xml-daily.ru/daily_json.js';
 
 async function dog(sait) {
   try {
@@ -65,8 +62,7 @@ async function dog(sait) {
     const { url } = await response.json();
     console.log(response);
     return url;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 }
@@ -76,22 +72,21 @@ async function messageTest(sait) {
     const { test } = await response.json();
     console.log(response);
     return test;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 }
 
 // Простая команда без параметров
-bot.on('message', async function (msg) {
+bot.on('message', async (msg) => {
   console.log(msg.text);
-  var chatId = msg.chat.id; // Берем ID чата (не отправителя)
+  const chatId = msg.chat.id; // Берем ID чата (не отправителя)
   // Фотография может быть: путь к файлу, поток (stream) или параметр file_id
-  var photo = await dog(sait); // в папке с ботом должен быть файл "cats.png"
-  var testOk = await messageTest(test); // в папке с ботом должен быть файл "cats.png"
+  const photo = await dog(sait); // в папке с ботом должен быть файл "cats.png"
+  const testOk = await messageTest(test); // в папке с ботом должен быть файл "cats.png"
   console.log(photo);
- 
-  if(msg.text === 'как дела'){
+
+  if (msg.text === 'как дела') {
     bot.sendMessage(chatId, testOk);
   } else {
     bot.sendPhoto(chatId, photo, { caption: 'Собачка' });
