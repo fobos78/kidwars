@@ -1,4 +1,6 @@
-import { SUCCESS_AUTH, LOGOUT, ADD_SCORE } from './actionsType';
+import {
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, SEND_CATEGORY,
+} from './actionsType';
 
 export function auth(user) {
   return {
@@ -17,5 +19,12 @@ export function addScore(score) {
   return {
     type: ADD_SCORE,
     payload: score,
+  };
+}
+
+export function sendCategory(category) {
+  return {
+    type: SEND_CATEGORY,
+    category,
   };
 }
