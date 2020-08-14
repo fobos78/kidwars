@@ -1,10 +1,10 @@
 import React from 'react';
+import './Footer.css';
 
 function Footer() {
   return (
-    <div>
-      <hr />
-      контакты и т.д
+    <div className="Footer">
+      информация. контакты и т.д
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Config.css';
 
 function Config() {
   const allTasks = [
@@ -97,7 +98,7 @@ function Config() {
   
   return (
 
-    <div>
+    <div className="Config">
       <h1>Личный кабинет</h1>
       {' '}
       <span>Баллы: 10</span>
@@ -110,7 +111,6 @@ function Config() {
       &nbsp;
       <button type="button">Информатика</button>
       <p />
-      {task.map((elem) => <p>{elem}</p>)}
     </div>
   );
 }

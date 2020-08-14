@@ -1,0 +1,9 @@
+body{
+  background: linear-gradient(90deg, powderblue, pink)
+}
+
+.header{
+  background: rgba(121, 158, 201, 0.568);
+  margin-bottom: 30px;
+  color: white;
+}
