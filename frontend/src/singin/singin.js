@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Jumbotron, Container } from 'react-bootstrap';
-
-// import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { auth } from '../redux/actions';
 
 function SingIn() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const [email, setLogin] = useState('');
@@ -43,10 +43,11 @@ function SingIn() {
     });
     const resp = await responce.json();
     if (resp.message === 'success') {
-      // dispatch({ type: 'success_authorization', email: resp.userEmail });
+      console.log(resp.user);
+      dispatch(auth(resp.user));
       history.push('/config');
       window.localStorage.setItem('auth', JSON.stringify(true));
-      window.localStorage.setItem('userEmail', JSON.stringify(resp.userEmail));
+      window.localStorage.setItem('userEmail', JSON.stringify(resp.user.email));
     } else {
       setError(resp.message);
       setLogin('');

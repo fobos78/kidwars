@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
   kidName: { type: String, required: true },
   kidClass: { type: Number },
   password: { type: String, required: true },
+  score: Number,
+  access: Boolean,
 });
 
 const userModel = mongoose.model('users', userSchema);
