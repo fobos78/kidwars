@@ -1,8 +1,15 @@
-import { ADD_SCORE } from './actonsType';
+import { SUCCESS_AUTH } from './actionsType';
 
-export function addScore(data) {
+export function auth(user) {
   return {
-    type: ADD_SCORE,
-    payload: data,
+    type: SUCCESS_AUTH,
+    payload: user,
+  };
+}
+
+export function auth1(user) {
+  return {
+    type: SUCCESS_AUTH,
+    payload: user,
   };
 }

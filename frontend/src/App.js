@@ -1,18 +1,43 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
-
 import store from './redux/store';
-import './App.css';
-import Config from './Componets/Config';
-import Heder from './Componets/Heder'
+import Config from './Components/Config';
+import Footer from './Footer';
+import Main from './Main';
+import SingIn from './singin';
+import Login from './login';
+import Logout from './logout';
+import Header from './Components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 function App() {
   return (
-    <>
-    <Heder />
-      <Config />
-    </>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/config">
+            <Config />
+          </Route>
+          <Route path="/singin">
+            <SingIn />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
+          <Main />
+          <Route path="/" />
+        </Switch>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 
