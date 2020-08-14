@@ -21,13 +21,15 @@ router.post('/', async (req, res) => {
       kidName,
       kidClass,
       password: await bcrypt.hash(password, 10),
+      score: 0,
+      access: false,
     });
     await newUser.save();
     req.session.user = newUser;
     // res.locals.user = req.session.user;
     const message = 'success';
-    const userEmail = newUser.email;
-    res.json({ message, userEmail });
+    const user = { email: newUser.email, score: newUser.score, access: newUser.access };
+    res.json({ message, user });
   } catch {
     const message = 'такой пользователь уже существует';
     res.json({ message });
