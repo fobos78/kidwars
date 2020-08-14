@@ -19,6 +19,8 @@
     "express-server": "^0.7.0",
     "express-session": "^1.17.1",
     "mongoose": "^5.9.28",
+    "node-fetch": "^2.6.0",
+    "node-telegram-bot-api": "^0.50.0",
     "session-file-store": "^1.4.0"
   },
   "devDependencies": {

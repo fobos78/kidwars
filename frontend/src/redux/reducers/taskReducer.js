@@ -1,4 +1,4 @@
-import { ADD_SCORE } from './actionsType';
+import { SUCCESS_AUTH1 } from '../actionsType';
 
 const init = {
   score: 0,
@@ -6,7 +6,7 @@ const init = {
 
 export default function reducer(state = init, action) {
   switch (action.type) {
-    case ADD_SCORE: return { ...state, score: action.payload };
+    case SUCCESS_AUTH1: return { ...state, score: action.payload };
     default: return state;
   }
 }
