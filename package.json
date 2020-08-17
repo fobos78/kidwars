@@ -7,7 +7,7 @@
     "build": "cd frontend && yarn build",
     "start": "cd backend && node server.js",
     "dev": "run-p dev-server dev-client",
-    "dev-server": "cd backend && nodemon server.js",
+    "dev-server": "cd backend && nodemon server.js --ignore sessions",
     "dev-client": "cd frontend && yarn start"
   },
   "repository": {
@@ -21,7 +21,10 @@
     "url": "https://github.com/fobos78/kidwars/issues"
   },
   "homepage": "https://github.com/fobos78/kidwars#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react-animations": "^1.0.0",
+    "styled-components": "^5.1.1"
+  },
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",

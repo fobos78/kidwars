@@ -1,4 +1,6 @@
-import { SUCCESS_AUTH, SEND_CATEGORY } from './actionsType';
+import {
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, SEND_CATEGORY,
+} from './actionsType';
 
 export function auth(user) {
   return {
@@ -7,14 +9,20 @@ export function auth(user) {
   };
 }
 
-export function auth1(user) {
+export function logout() {
   return {
-    type: SUCCESS_AUTH,
-    payload: user,
+    type: LOGOUT,
   };
 }
 
-export function sendCategory(category) {
+export function addScore(score) {
+  return {
+    type: ADD_SCORE,
+    payload: score,
+  };
+}
+
+export function (category) {
   return {
     type: SEND_CATEGORY,
     category,

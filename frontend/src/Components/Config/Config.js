@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { sendCategory } from '../../redux/actions';
 import './Config.css';
@@ -10,40 +10,40 @@ function Config() {
   const [classNumber, setClassNumber] = useState(1);
   const [fourth, setFourth] = useState(1);
   const [theme, setTheme] = useState('Математика');
-  const [config, setConfig] = useState();
   const [needScore, setNeedScore] = useState('');
+  const [info, setInfo] = useState({});
+
+  const userEmail = useSelector((state) => state.user.email);
 
   function changeInput(event) {
     setNeedScore(event.target.value);
   }
 
-  console.log(config, '&&&&&&&&&&&&&&&&&&&&&');
-
-  function sendConfig(event) {
+  async function sendConfig(event) {
     event.preventDefault();
-    setConfig({
-      ...config,
-      classNumber,
-      fourth,
-      theme,
-      needScore,
-    });
     setNeedScore('');
+    const response = await fetch('/config', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        config: {
+          classNumber,
+          fourth,
+          theme,
+        },
+        needScore,
+        userEmail,
+      }),
+    });
+    const result = await response.json();
+    console.log(result,"((((((((((((((((((((((((((")
+    setInfo(result.taskConfig);
   }
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetch('/config', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          config,
-        }),
-      });
-    })();
-  }, [config]);
+  console.log(info,"$$$$$$$$$$$$$$")
+
   return (
     <div className="Config">
 
@@ -70,11 +70,14 @@ function Config() {
           <button onClick={() => setTheme('Литература')} className="button2" type="button">Литература</button>
         </p>
         <p>
-          <label htmlFor="needScore">Колличество очков необходимых для доступа: </label>
+          <label htmlFor="needScore">Количество очков необходимых для доступа: </label>
           <input required onChange={changeInput} type="text" name="needScore" id="needScore" value={needScore} />
         </p>
         <button className="button" type="submit">Сохранить изменения</button>
       </form>
+      <p>
+        {info.fourth}
+      </p>
     </div>
   );
 }

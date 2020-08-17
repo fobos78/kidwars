@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Jumbotron, Container } from 'react-bootstrap';
-
-// import { useSelector, useDispatch } from 'react-redux';
+import { auth } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 function Login() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
-  const auth = JSON.parse(window.localStorage.getItem('auth'));
+  const authLS = JSON.parse(window.localStorage.getItem('auth'));
 
   useEffect(() => {
-    if (auth) {
+    if (authLS) {
       history.push('/');
     }
-  }, [auth]);
+  }, [authLS, history]);
 
   const [email, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -40,10 +40,10 @@ function Login() {
     });
     const resp = await responce.json();
     if (resp.message === 'success') {
-      // dispatch({ type: 'success_login', email: resp.userEmail });
-      history.push('/tasks');
+      dispatch(auth(resp.user));
       window.localStorage.setItem('auth', JSON.stringify(true));
-      window.localStorage.setItem('userEmail', JSON.stringify(resp.userEmail));
+      window.localStorage.setItem('userEmail', JSON.stringify(resp.user.email));
+      history.push('/game');
     } else {
       setError(resp.message);
       setLogin('');
