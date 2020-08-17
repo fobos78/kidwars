@@ -16,6 +16,7 @@ import newTaskRouter from './routes/task.js';
 import gameRouter from './routes/game.js';
 import editRouter from './routes/edit.js';
 import doneRouter from './routes/done.js';
+import configRouter from './routes/config.js';
 
 dotenv.config();
 const fileStore = fS(session);
@@ -56,6 +57,7 @@ app.use('/api/task', newTaskRouter);
 app.use('/api/game', gameRouter);
 app.use('/api/done', doneRouter);
 app.use('/edit', editRouter);
+app.use('/config', configRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
@@ -71,14 +73,13 @@ app.listen(process.env.PORT ?? 3001);
 // const bot = new TelegramBot(token, { polling: true });
 
 // const sait = 'https://random.dog/woof.json';
-// const test = 'http://localhost:3001/';
-// const sait = 'https://www.cbr-xml-daily.ru/daily_json.js';
+// const test = 'http://localhost:3001';
+// // const sait = 'https://www.cbr-xml-daily.ru/daily_json.js';
 
 // async function dog(sait) {
 //   try {
 //     const response = await fetch(sait);
 //     const { url } = await response.json();
-//     console.log(response);
 //     return url;
 //   } catch (error) {
 //     console.log(error);
@@ -87,8 +88,7 @@ app.listen(process.env.PORT ?? 3001);
 // async function messageTest(sait) {
 //   try {
 //     const response = await fetch(sait);
-//     const { test } = await response.json();
-//     console.log(response);
+//     const test = await response.json();
 //     return test;
 //   } catch (error) {
 //     console.log(error);
@@ -97,16 +97,15 @@ app.listen(process.env.PORT ?? 3001);
 
 // // Простая команда без параметров
 // bot.on('message', async (msg) => {
-//   console.log(msg.text);
 //   const chatId = msg.chat.id; // Берем ID чата (не отправителя)
 //   // Фотография может быть: путь к файлу, поток (stream) или параметр file_id
 //   const photo = await dog(sait); // в папке с ботом должен быть файл "cats.png"
-//   const testOk = await messageTest(test); // в папке с ботом должен быть файл "cats.png"
-//   console.log(photo);
+//   const testOk = await messageTest(`${test}/${msg.text}`); // в папке с ботом должен быть файл "cats.png"
 
-//   if (msg.text === 'как дела') {
-//     bot.sendMessage(chatId, testOk);
-//   } else {
+//   if (msg.text === testOk.email) {
+//     bot.sendMessage(chatId, testOk.kidName);
+//   } 
+//   else {
 //     bot.sendPhoto(chatId, photo, { caption: 'Собачка' });
 //   }
 // });
