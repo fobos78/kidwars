@@ -1,6 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import userModel from '../database/database.js';
+import { userModel } from '../database/database.js';
 
 const router = express.Router();
 
@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
       kidClass,
       password: await bcrypt.hash(password, 10),
       score: 0,
+      needScore: 10,
       access: false,
     });
     await newUser.save();

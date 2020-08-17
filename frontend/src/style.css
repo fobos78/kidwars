@@ -2,8 +2,15 @@ body{
   background: linear-gradient(90deg, powderblue, pink)
 }
 
-.header{
+.Header{
   background: rgba(121, 158, 201, 0.568);
-  margin-bottom: 30px;
+  width: 100%;
   color: white;
+  position: fixed;
+}
+
+.Footer{
+  background: rgba(121, 158, 201, 0.568);
+  color: white;
+  position: fixed;
 }
