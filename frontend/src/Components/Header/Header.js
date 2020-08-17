@@ -10,7 +10,8 @@ function Header() {
   const status = useSelector((state) => state.user.auth);
   const [auth, setAuth] = useState(status);
   const userState = useSelector((state) => state);
-  console.log(userState);
+  const access = useSelector((state) => state.user.access.flag);
+  console.log('userState', userState);
 
   useEffect(() => {
     setAuth(status);
@@ -18,7 +19,22 @@ function Header() {
 
   return (
     <div className="Header">
+      <div>
+        {access
+          ? (
+            <>
+              Доступ открыт
+            </>
+          )
+          : (
+            <>
+              Доступ закрыт
+            </>
+          )}
+
+      </div>
       <Link to="/task">Добавить задание</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       {!auth ? (
         <>
           <span><Link to="/singin"> Зарегистрироваться</Link></span>
@@ -35,8 +51,10 @@ function Header() {
         </>
       )}
       <Link to="/">На главную</Link>
-      <button onClick={() => { app.quit() }}>Х</button>
-      
+      {
+        access && <button onClick={() => { app.quit() }}>Х</button>
+      }
+       {/* <button onClick={() => { app.quit() }}>Х</button> */}
     </div>
   );
 }
