@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   kidName: { type: String, required: true },
   kidClass: { type: Number },
   password: { type: String, required: true },
-  weak: [String],
+  taskConfig: [Object],
   needScore: Number,
   score: Number,
   access: Boolean,
