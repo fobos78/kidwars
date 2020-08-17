@@ -1,4 +1,4 @@
-// import { SUCCESS_AUTH, LOGOUT, ADD_SCORE } from '../actionsType';
+import { CLEANSCORE } from '../actionsType';
 
 const init = {
   question: '',
@@ -34,6 +34,11 @@ export default function reducer(state = init, action) {
       return {
         ...state,
         questions: action.questions,
+      };
+    case CLEANSCORE:
+      return {
+        ...state,
+        score: 0,
       };
     default: return state;
   }

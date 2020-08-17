@@ -6,6 +6,7 @@ import './Header.css';
 function Header() {
   const status = useSelector((state) => state.user.auth);
   const [auth, setAuth] = useState(status);
+  const access = useSelector((state) => state.user.access.flag);
 
   useEffect(() => {
     setAuth(status);
@@ -13,7 +14,22 @@ function Header() {
 
   return (
     <div className="Header">
+      <div>
+        {access
+          ? (
+            <>
+              Доступ открыт
+            </>
+          )
+          : (
+            <>
+              Доступ закрыт
+            </>
+          )}
+
+      </div>
       <Link to="/task">Добавить задание</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       {!auth ? (
         <>
           <span><Link to="/singin"> Зарегистрироваться</Link></span>
