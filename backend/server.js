@@ -12,6 +12,8 @@ import loginRouter from './routes/login.js';
 import logoutRouter from './routes/logout.js';
 import singInRouter from './routes/singin.js';
 import taskRouter from './routes/tasks.js';
+import newTaskRouter from './routes/task.js';
+import gameRouter from './routes/game.js';
 import editRouter from './routes/edit.js';
 
 dotenv.config();
@@ -49,11 +51,13 @@ app.use('/api/singin', singInRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
 app.use('/tasks', taskRouter);
+app.use('/api/task', newTaskRouter);
+app.use('/api/game', gameRouter);
 app.use('/edit', editRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
-})
+});
 
 app.listen(process.env.PORT ?? 3001);
 

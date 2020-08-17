@@ -1,4 +1,4 @@
-import { SUCCESS_AUTH, LOGOUT, ADD_SCORE  } from '../actionsType';
+import { SUCCESS_AUTH, LOGOUT, ADD_SCORE } from '../actionsType';
 
 const init = {
   email: JSON.parse(window.localStorage.getItem('userEmail')) || '',

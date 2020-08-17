@@ -15,10 +15,23 @@ const userSchema = new mongoose.Schema({
   kidName: { type: String, required: true },
   kidClass: { type: Number },
   password: { type: String, required: true },
+  taskConfig: [Object],
+  needScore: Number,
   score: Number,
   access: Boolean,
 });
 
-const userModel = mongoose.model('users', userSchema);
+const taskSchema = new mongoose.Schema({
+  theme: String,
+  classNumber: Number,
+  points: Number,
+  question: String,
+  answerOptions: [String],
+  answerTrue: String,
+  creator: String,
+});
 
-export default userModel;
+const userModel = mongoose.model('users', userSchema);
+const taskModel = mongoose.model('newTasks', taskSchema);
+
+export { userModel, taskModel };
