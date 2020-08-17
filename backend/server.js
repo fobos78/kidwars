@@ -76,7 +76,6 @@ async function dog(sait) {
   try {
     const response = await fetch(sait);
     const { url } = await response.json();
-    console.log(response);
     return url;
   } catch (error) {
     console.log(error);
@@ -86,7 +85,6 @@ async function messageTest(sait) {
   try {
     const response = await fetch(sait);
     const test = await response.json();
-    console.log('test', test);
     return test;
   } catch (error) {
     console.log(error);
@@ -95,12 +93,10 @@ async function messageTest(sait) {
 
 // Простая команда без параметров
 bot.on('message', async (msg) => {
-  console.log(msg.text);
   const chatId = msg.chat.id; // Берем ID чата (не отправителя)
   // Фотография может быть: путь к файлу, поток (stream) или параметр file_id
   const photo = await dog(sait); // в папке с ботом должен быть файл "cats.png"
   const testOk = await messageTest(`${test}/${msg.text}`); // в папке с ботом должен быть файл "cats.png"
-  console.log(photo);
 
   if (msg.text === testOk.email) {
     bot.sendMessage(chatId, testOk.kidName);
