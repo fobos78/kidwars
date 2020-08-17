@@ -11,19 +11,21 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   const {
     email,
+    name,
+    surname,
     kidName,
-    kidClass,
     password,
   } = req.body;
   try {
     const newUser = await new userModel({
       email,
+      name,
+      surname,
       kidName,
-      kidClass,
       password: await bcrypt.hash(password, 10),
       score: 0,
       needScore: 10,
-      access: false,
+      access: { flaf: false, date: new Date().toLocaleDateString() },
     });
     await newUser.save();
     req.session.user = newUser;

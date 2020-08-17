@@ -64,9 +64,9 @@ app.listen(process.env.PORT ?? 3001);
 // Подключаем библиотеку для работы с Telegram API в переменную
 
 // Устанавливаем токен, который выдавал нам бот
-const token = '1112279415:AAGobWm61FyW2HoU5NQrKE2LkwZH_R8x6vo';
+// const token = '1112279415:AAGobWm61FyW2HoU5NQrKE2LkwZH_R8x6vo';
 
-const bot = new TelegramBot(token, { polling: true });
+// const bot = new TelegramBot(token, { polling: true });
 
 const sait = 'https://random.dog/woof.json';
 const test = 'http://localhost:3001';
