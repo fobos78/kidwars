@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 function NewTasks() {
   const [theme, setTheme] = useState('');
   const [сlassNumber, setСlassNumber] = useState('');
-  const [points, setPoints] = useState('');
+  const [fourth, setFourth] = useState('');
   const [question, setQuestion] = useState('');
   const [answerOptions, setAnswerOptions] = useState('');
   const [answerTrue, setAnswerTrue] = useState('');
@@ -22,8 +22,8 @@ function NewTasks() {
     setСlassNumber(e.target.value);
   }
 
-  function getPoints(e) {
-    setPoints(e.target.value);
+  function getFourth(e) {
+    setFourth(e.target.value);
   }
 
   function getQuestion(e) {
@@ -54,7 +54,7 @@ function NewTasks() {
         body: JSON.stringify({
           theme,
           сlassNumber,
-          points,
+          fourth,
           question,
           answerOptions: arrAnswerOptions,
           answerTrue,
@@ -88,13 +88,15 @@ function NewTasks() {
             </label>
             <br />
 
-            <label htmlFor="points">
+            <label htmlFor="fourth">
               {' '}
-              Сложность
-              <select className="form-control" id="points" onChange={getPoints} name="points" type="number" required>
+              Четверть
+              <select className="form-control" id="fourth" onChange={getFourth} name="fourth" type="number" defaultValue={{ label: '1', value: 1 }} required>
+                <option value="">укажите четверть</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </label>
             <br />
