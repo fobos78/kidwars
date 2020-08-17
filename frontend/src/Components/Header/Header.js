@@ -13,6 +13,7 @@ function Header() {
 
   return (
     <div className="Header">
+      <Link to="/task">Добавить задание</Link>
       {!auth ? (
         <>
           <span><Link to="/singin"> Зарегистрироваться</Link></span>
