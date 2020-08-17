@@ -17,7 +17,7 @@ function Config() {
   }
 
   return (
-    <>
+    
       <div className="Config">
         <h1>Личный кабинет</h1>
         {' '}
@@ -32,7 +32,6 @@ function Config() {
           </div>
         ))}
       </div>
-    </>
   );
 }
 
