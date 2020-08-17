@@ -22,6 +22,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <Header />
+        <div className="mainWindow">
         <Switch>
           <Route path="/config">
             <Config />
@@ -47,6 +48,7 @@ function App() {
           <Main />
           <Route path="/" />
         </Switch>
+        </div>
         <Footer />
       </Router>
     </Provider>

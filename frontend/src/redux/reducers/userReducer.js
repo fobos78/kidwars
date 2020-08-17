@@ -1,8 +1,14 @@
-import { SUCCESS_AUTH, LOGOUT, ADD_SCORE } from '../actionsType';
+import {
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG,
+} from '../actionsType';
 
 const init = {
   email: JSON.parse(window.localStorage.getItem('userEmail')) || '',
   auth: JSON.parse(window.localStorage.getItem('auth')) || false,
+  access: {
+    flag: JSON.parse(window.localStorage.getItem('accessFlag')) || false,
+    date: JSON.parse(window.localStorage.getItem('date')) || '00.00.0000',
+  },
   score: 0,
 };
 
@@ -24,6 +30,24 @@ export default function reducer(state = init, action) {
         ...state,
         score: action.payload,
         // ...action.payload,
+      };
+    case NEWDATE:
+      return {
+        ...state,
+        access: {
+          ...state.access,
+          date: action.date,
+          flag: false,
+        },
+      };
+    case CHANGEFLAG:
+      return {
+        ...state,
+        access: {
+          ...state.access,
+          date: state.access.date,
+          flag: true,
+        },
       };
     default: return state;
   }

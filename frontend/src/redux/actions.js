@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, GET_INFO_CONFIG,
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE,
 } from './actionsType';
 
 export function auth(user) {
@@ -22,9 +22,21 @@ export function addScore(score) {
   };
 }
 
-export function getInfoConfig(info) {
+export function addNewDate(date) {
   return {
-    type: GET_INFO_CONFIG,
-    info,
+    type: NEWDATE,
+    date,
+  };
+}
+
+export function changeFlag() {
+  return {
+    type: CHANGEFLAG,
+  };
+}
+
+export function clearScore() {
+  return {
+    type: CLEANSCORE,
   };
 }

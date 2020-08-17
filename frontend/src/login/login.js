@@ -43,7 +43,8 @@ function Login() {
       dispatch(auth(resp.user));
       window.localStorage.setItem('auth', JSON.stringify(true));
       window.localStorage.setItem('userEmail', JSON.stringify(resp.user.email));
-      
+      window.localStorage.setItem('accessFlag', JSON.stringify(resp.user.access.flag));
+      window.localStorage.setItem('date', JSON.stringify(resp.user.access.date));
       history.push('/game');
     } else {
       setError(resp.message);

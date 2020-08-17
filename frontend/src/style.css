@@ -17,3 +17,6 @@ body{
 .Main{
   padding: 60px
 }
+.mainWindow{
+  padding-top: 120px !important
+}
