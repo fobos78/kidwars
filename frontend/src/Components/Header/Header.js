@@ -3,9 +3,14 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
+const { remote } = window.require('electron');
+const { app } = remote;
+
 function Header() {
   const status = useSelector((state) => state.user.auth);
   const [auth, setAuth] = useState(status);
+  const userState = useSelector((state) => state);
+  console.log(userState);
 
   useEffect(() => {
     setAuth(status);
@@ -30,6 +35,8 @@ function Header() {
         </>
       )}
       <Link to="/">На главную</Link>
+      <button onClick={() => { app.quit() }}>Х</button>
+      
     </div>
   );
 }

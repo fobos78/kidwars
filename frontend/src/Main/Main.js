@@ -4,16 +4,13 @@ import { fadeIn, bounce, flash, flip, jello } from 'react-animations';
 
 import './Main.css';
 
-const { remote } = window.require('electron');
-const { app } = remote;
-
 function Main() {
-  const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`}`;
+  const Bounce = styled.div`animation: 2s ${keyframes`${'bounce'}`}`;
 
   return (
     <>
       <div className="Main">
-    <Bounce> <div style={{ backgroundImage: `url(/img/1.gif)` }} className="imgLogo"  >
+        <Bounce> <div style={{ backgroundImage: `url(/img/1.gif)` }} className="imgLogo"  >
         </div></Bounce>
         <h1>Информация о приложении</h1>
         <p> Уважаемые родители! Если у вас в силу вашей работы абсолютно нет свободного времени. Нет возможности находиться дома, заниматься образованием и контралировать успеваемость вашего горячо любимого ребёнка - тогда наше приложение для вас. </p>
