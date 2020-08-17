@@ -23,7 +23,6 @@
   "homepage": "https://github.com/fobos78/kidwars#readme",
   "dependencies": {
     "react-animations": "^1.0.0",
-    "styled": "^1.0.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

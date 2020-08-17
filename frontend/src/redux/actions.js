@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, SEND_CATEGORY,
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, GET_INFO_CONFIG,
 } from './actionsType';
 
 export function auth(user) {
@@ -22,9 +22,9 @@ export function addScore(score) {
   };
 }
 
-export function sendCategory(category) {
+export function getInfoConfig(info) {
   return {
-    type: SEND_CATEGORY,
-    category,
+    type: GET_INFO_CONFIG,
+    info,
   };
 }
