@@ -22,7 +22,7 @@ export function addScore(score) {
   };
 }
 
-export function sendCategory(category) {
+export function (category) {
   return {
     type: SEND_CATEGORY,
     category,
