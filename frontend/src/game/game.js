@@ -53,13 +53,21 @@ function Game() {
       if (userAnswer === rightAnswer) {
         dispatch({ type: 'right', score: 1 });
         const numberOfQuestion = Math.floor(Math.random() * Allquestions.length);
-        setTask(`Вопрос: \n
-        ${Allquestions[numberOfQuestion].question}`);
+        setTask('Верно!');
+        setTimeout(() => {
+          setTask(`Вопрос: \n
+          ${Allquestions[numberOfQuestion].question}`);
+        }, 1000);
         setOptions(Allquestions[numberOfQuestion].answerOptions);
         dispatch({ type: 'newgame', question: Allquestions[numberOfQuestion].question, answer: Allquestions[numberOfQuestion].answerTrue });
         setAnswer('');
       } else {
         dispatch({ type: 'wrong', score: 1 });
+        const repeate = task;
+        setTask('Не верно! Попробуй еще раз');
+        setTimeout(() => {
+          setTask(repeate);
+        }, 1000);
         setAnswer('');
       }
     }

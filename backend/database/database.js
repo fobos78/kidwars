@@ -12,19 +12,24 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
+  name: { type: String, required: true },
+  surname: { type: String, required: true },
   kidName: { type: String, required: true },
-  kidClass: { type: Number },
   password: { type: String, required: true },
-  taskConfig: [Object],
+  taskConfig: {
+    classNumber: Number,
+    fourth: Number,
+    theme: Array,
+  },
   needScore: Number,
   score: Number,
-  access: Boolean,
+  access: Object,
 });
 
 const taskSchema = new mongoose.Schema({
   theme: String,
   classNumber: Number,
-  points: Number,
+  fourth: Number,
   question: String,
   answerOptions: [String],
   answerTrue: String,

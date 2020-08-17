@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   const {
     theme,
     classNumber,
-    points,
+    fourth,
     question,
     answerOptions,
     answerTrue,
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
     const newTask = await new taskModel({
       theme,
       classNumber,
-      points,
+      fourth,
       question,
       answerOptions,
       answerTrue,
