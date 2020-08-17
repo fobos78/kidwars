@@ -1,19 +1,52 @@
 .Config {
   text-align: center;
 }
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+.button {
+  background-color: #8e5795;
+  border: none;
+  color: white;
+  padding: 6px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  cursor: pointer;
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.button2 {
+  color: #fff;
+  background: #c080c8;
+  padding: 6px 50px;
+  font-size: 22px;
+  margin: 4px 2px;
+  cursor: pointer;
+  user-select: none;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  outline: none;
+  transition: background 9999999s;
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
+button:active {
+  background: rgb(24, 7, 19);
+  transition: background 0s;
+}
+
+.select {
+  background-color: #d696df;
+  border: none;
+  color: white;
+  padding: 6px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  cursor: pointer;
+
 }
