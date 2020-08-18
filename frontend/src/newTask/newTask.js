@@ -70,7 +70,7 @@ function NewTasks() {
     <>
       <Container>
         <Jumbotron>
-          <Link to="/game">Перейти к заданиям</Link>
+          
           <h1>Новое задание</h1>
           <form name="newTask" onSubmit={sendForm}>
 
