@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, SEND_CATEGORY,
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE,
 } from './actionsType';
 
 export function auth(user) {
@@ -22,9 +22,21 @@ export function addScore(score) {
   };
 }
 
-export function (category) {
+export function addNewDate(date) {
   return {
-    type: SEND_CATEGORY,
-    category,
+    type: NEWDATE,
+    date,
+  };
+}
+
+export function changeFlag() {
+  return {
+    type: CHANGEFLAG,
+  };
+}
+
+export function clearScore() {
+  return {
+    type: CLEANSCORE,
   };
 }

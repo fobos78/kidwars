@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { sendCategory } from '../../redux/actions';
+// import { sendCategory } from '../../redux/actions';
 import './Config.css';
 
 function Config() {
@@ -18,6 +19,7 @@ function Config() {
   function changeInput(event) {
     setNeedScore(event.target.value);
   }
+
 
   async function sendConfig(event) {
     event.preventDefault();
@@ -40,6 +42,14 @@ function Config() {
     const result = await response.json();
     setInfo(result.taskConfig);
   }
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`/config/${userEmail}`);
+      const result = await response.json();
+      setInfo(result);
+    })();
+  }, [sendConfig]);
 
   return (
     <div className="Config">
@@ -72,114 +82,23 @@ function Config() {
         </p>
         <button className="button" type="submit">Сохранить изменения</button>
       </form>
-      <p>
+      <div>
+        {info.userName}
+        <br />
+        {info.kidName}
+        <br />
+        {info.classNumber}
+        <br />
         {info.fourth}
-      </p>
+        <br />
+        {info.theme}
+        <br />
+        {info.needScore}
+        <br />
+        {info.score}
+      </div>
     </div>
   );
 }
 
 export default Config;
-
-// const taskListCategori = ['Математика', 'Химия', 'Физика'];
-// const dispatch = useDispatch();
-// const history = useHistory();
-
-// function sendCatego(category) {
-//   dispatch(sendCategory(category));
-//   history.push('/tasks');
-// }
-{ /* <button type="button">Maтематика</button>
-&nbsp;
-<button type="button">Физика</button>
-&nbsp;
-<button type="button">Химия</button>
-&nbsp;
-<button type="button">Информатика</button> */ }
-// onClick={() => choiceCategori('Математика')}
-
-// const allTasks = [
-//   {
-//     catigori: 'Maтематика',
-//     qwesList: [
-//       {
-//         qwes: 'Вопрос по матиматике 1',
-//         ans: 'Ответ 1',
-//       },
-//       {
-//         qwes: 'Вопрос по матиматике 2',
-//         ans: 'Ответ 2',
-//       },
-//       {
-//         qwes: 'Вопрос по матиматике 3',
-//         ans: 'Ответ 3',
-//       },
-//       {
-//         qwes: 'Вопрос по матиматике 4',
-//         ans: 'Ответ 1',
-//       },
-//     ],
-//   },
-//   {
-//     catigori: 'Физика',
-//     qwesList: [
-//       {
-//         qwes: 'Вопрос по Физикe 1',
-//         ans: 'Ответ 1',
-//       },
-//       {
-//         qwes: 'Вопрос по Физике 2',
-//         ans: 'Ответ 2',
-//       },
-//       {
-//         qwes: 'Вопрос по Физике 3',
-//         ans: 'Ответ 3',
-//       },
-//       {
-//         qwes: 'Вопрос по Физике 4',
-//         ans: 'Ответ 4',
-//       },
-//     ],
-//   },
-//   {
-//     catigori: 'химия',
-//     qwesList: [
-//       {
-//         qwes: 'Вопрос по химии 1',
-//         ans: 'Ответ 1',
-//       },
-//       {
-//         qwes: 'Вопрос по химии 2',
-//         ans: 'Ответ 2',
-//       },
-//       {
-//         qwes: 'Вопрос по химии 3',
-//         ans: 'Ответ 3',
-//       },
-//       {
-//         qwes: 'Вопрос по химии 4',
-//         ans: 'Ответ 1',
-//       },
-//     ],
-//   },
-//   {
-//     catigori: 'Информатика',
-//     qwesList: [
-//       {
-//         qwes: 'Вопрос по Информатике 1',
-//         ans: 'Ответ 1',
-//       },
-//       {
-//         qwes: 'Вопрос по Информатике 2',
-//         ans: 'Ответ 2',
-//       },
-//       {
-//         qwes: 'Вопрос по Информатике 3',
-//         ans: 'Ответ 3',
-//       },
-//       {
-//         qwes: 'Вопрос по Информатике 4',
-//         ans: 'Ответ 1',
-//       },
-//     ],
-//   }];

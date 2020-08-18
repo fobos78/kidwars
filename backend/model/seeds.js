@@ -16,7 +16,7 @@ async function seed() {
   let cardsArray = cards.split('\n');
   cardsArray.pop();
 
-  for (let i = 0; i < 21; i += 7) {
+  for (let i = 0; i < 63; i += 7) {
     const theme = cardsArray[i];
     const points = cardsArray[i + 1];
     const question = cardsArray[i + 2];

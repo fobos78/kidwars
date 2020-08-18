@@ -25,9 +25,10 @@ router.post('/', async (req, res) => {
       password: await bcrypt.hash(password, 10),
       score: 0,
       needScore: 10,
-      access: { flaf: false, date: new Date().toLocaleDateString() },
+      access: { flag: false, date: new Date().toLocaleDateString() },
     });
     await newUser.save();
+    console.log(newUser);
     req.session.user = newUser;
     // res.locals.user = req.session.user;
     const message = 'success';

@@ -15,6 +15,7 @@ import taskRouter from './routes/tasks.js';
 import newTaskRouter from './routes/task.js';
 import gameRouter from './routes/game.js';
 import editRouter from './routes/edit.js';
+import doneRouter from './routes/done.js';
 import configRouter from './routes/config.js';
 
 dotenv.config();
@@ -54,6 +55,7 @@ app.use('/api/logout', logoutRouter);
 app.use('/tasks', taskRouter);
 app.use('/api/task', newTaskRouter);
 app.use('/api/game', gameRouter);
+app.use('/api/done', doneRouter);
 app.use('/edit', editRouter);
 app.use('/config', configRouter);
 
