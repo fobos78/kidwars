@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Footer.css';
-import About from '../Components/About';
-import Contacts from '../Components/Contacts';
+import About from '../About';
+import Contacts from '../Contacts';
 
 function Footer() {
   const [flagCompany, setFlagCompany] = useState(false);
