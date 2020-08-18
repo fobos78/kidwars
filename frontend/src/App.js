@@ -6,16 +6,14 @@ import {
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Config from './Components/Config';
-import Footer from './Footer';
-import Main from './Main';
-import SingIn from './singin';
-import Login from './login';
-import Logout from './logout';
+import Footer from './Components/Footer';
+import Main from './Components/Main';
+import SingIn from './Components/Signin';
+import Login from './Components/Login';
+import Logout from './Components/Logout';
 import Header from './Components/Header';
-import Tasks from './Components/Tasks';
-import NewTask from './newTask';
-import Game from './game';
-// import About from './Components/About';
+import NewTask from './Components/NewTask';
+import Game from './Components/Game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -32,9 +30,6 @@ function App() {
             <Route path="/singin">
               <SingIn />
             </Route>
-            <Route path="/tasks">
-              <Tasks />
-            </Route>
             <Route path="/task">
               <NewTask />
             </Route>
@@ -47,9 +42,6 @@ function App() {
             <Route path="/logout">
               <Logout />
             </Route>
-            {/* <Route path="/about">
-              <About />
-            </Route> */}
             <Main />
             <Route path="/" />
           </Switch>

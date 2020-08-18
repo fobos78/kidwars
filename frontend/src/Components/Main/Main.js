@@ -5,7 +5,7 @@ import { bounce } from 'react-animations';
 import './Main.css';
 
 function Main() {
-  const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`}`;
+  const Bounce = styled.div`animation: 2s ${keyframes`${'bounce'}`}`;
 
   return (
     <>

@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import mongoose from 'mongoose';
 import fs from 'fs';
 import Card from './card.js';
@@ -10,23 +11,39 @@ mongoose.connect('mongodb://localhost:27017/cards', {
 });
 
 async function seed() {
-  // загружаем вопросы из файла и создаем коллекцию Cards:
-
   const cards = fs.readFileSync('./data/cards.txt', 'utf-8');
-  let cardsArray = cards.split('\n');
+  const cardsArray = cards.split('\n');
   cardsArray.pop();
 
-  for (let i = 0; i < 63; i += 7) {
+  for (let i = 0; i < 225; i += 9) {
     const theme = cardsArray[i];
-    const points = cardsArray[i + 1];
-    const question = cardsArray[i + 2];
-    const answer1 = cardsArray[i + 3];
-    const answer2 = cardsArray[i + 4];
-    const answer3 = cardsArray[i + 5];
-    const answerTrue = cardsArray[i + 6];
-    await new Card({ theme, points, question, answer1, answer2, answer3, answerTrue }).save();
+    const classNumber = cardsArray[i + 1];
+    const fourth = cardsArray[i + 2];
+    const question = cardsArray[i + 3];
+    const answerOptions = [
+      cardsArray[i + 4],
+      cardsArray[i + 5],
+      cardsArray[i + 6],
+      cardsArray[i + 7],
+    ];
+    const answerTrue = cardsArray[i + 8];
+    await new Card({
+      theme, classNumber, fourth, question, answerOptions, answerTrue,
+    }).save();
   }
-  // mongoose.disconnect();
 }
 
 seed();
+// for (let i = 0; i < 63; i += 7) {
+//   const theme = cardsArray[i];
+//   const points = cardsArray[i + 1];
+//   const question = cardsArray[i + 2];
+//   const answer1 = cardsArray[i + 3];
+//   const answer2 = cardsArray[i + 4];
+//   const answer3 = cardsArray[i + 5];
+//   const answerTrue = cardsArray[i + 6];
+//   const classNumber = cardsArray[i + 7];
+//   await new Card({
+//     theme, points, question, answer1, answer2, answer3, answerTrue, classNumber,
+//   }).save();
+// }
