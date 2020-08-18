@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
+//import { remote } from 'electron';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addScore } from '../../redux/actions';
+
+//const electron = window.require("electron")
+
 
 function Tasks() {
   const [task, setTask] = useState([]);
@@ -41,6 +45,7 @@ function Tasks() {
 
   return (
     <>
+    
       <div>
         Тема урока:
         {' '}

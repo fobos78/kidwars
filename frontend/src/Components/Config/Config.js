@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import './Config.css';
+import Modal from '../Modal/Modal';
 
 function Config() {
   const [info, setInfo] = useState({});
@@ -23,6 +24,7 @@ function Config() {
       setNeedScore(result.needScore);
     })();
   }, []);
+  const [flag, setFlag] = useState(true);
 
   const userEmail = useSelector((state) => state.user.email);
 
@@ -65,16 +67,17 @@ function Config() {
     setTimeout(() => { setMessage(''); }, 2000);
   }
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(`/config/${userEmail}`);
-      const result = await response.json();
-      setInfo(result);
-    })();
-  }, [sendConfig]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = await fetch(`/config/${userEmail}`);
+  //     const result = await response.json();
+  //     setInfo(result);
+  //   })();
+  // }, [sendConfig]);
 
   return (
     <>
+      {flag && <Modal flag={flag} setFlag={setFlag} />}
       <Container>
         <Jumbotron>
           <Link to="/task"> Добавить задание </Link>
