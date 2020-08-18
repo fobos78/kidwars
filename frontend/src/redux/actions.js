@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE,
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE, ADDSCORE
 } from './actionsType';
 
 export function auth(user) {
@@ -38,5 +38,12 @@ export function changeFlag() {
 export function clearScore() {
   return {
     type: CLEANSCORE,
+  };
+}
+
+export function addTotalScore(score) {
+  return {
+    type: ADDSCORE,
+    payload: score,
   };
 }

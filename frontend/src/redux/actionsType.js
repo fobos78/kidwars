@@ -6,3 +6,4 @@ export const NEWDATE = 'NEWDATE';
 export const CHANGEFLAG = 'CHANGEFLAG';
 export const CLEANSCORE = 'CLEANSCORE';
 export const GET_INFO_CONFIG = 'GET_INFO_CONFIG';
+export const ADDSCORE = 'ADDSCORE';
