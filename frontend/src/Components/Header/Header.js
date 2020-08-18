@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-const { remote } = window.require('electron');
-const { app } = remote;
+
+// При запуске в Электроне раскоментировать 3 строки со звездачками
+// const { remote } = window.require('electron');
+// const { app } = remote;
 
 function Header() {
   const status = useSelector((state) => state.user.auth);
@@ -52,9 +54,8 @@ function Header() {
       )}
       <Link to="/">На главную</Link>
       {
-        access && <button onClick={() => { app.quit() }}>Х</button>
+        // access && <button onClick={() => { app.quit() }}>Х</button>
       }
-       {/* <button onClick={() => { app.quit() }}>Х</button> */}
     </div>
   );
 }
