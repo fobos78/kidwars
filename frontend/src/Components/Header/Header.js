@@ -50,8 +50,6 @@ function Header() {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link to="/game">Задания</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span><Link to="/logout">Выход</Link></span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </>
       )}
       {

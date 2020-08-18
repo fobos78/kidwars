@@ -80,7 +80,8 @@ function Config() {
       {flag && <Modal flag={flag} setFlag={setFlag} />}
       <Container>
         <Jumbotron>
-          <Link to="/task"> Добавить задание </Link>
+          <div><Link to="/logout">Выйти из учетной записи</Link></div>
+          <div><Link to="/task"> Добавить задание </Link></div>
           <div className="Config">
             <h2>
               {' '}
