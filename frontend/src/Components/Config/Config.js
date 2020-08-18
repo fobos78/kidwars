@@ -38,11 +38,8 @@ function Config() {
       }),
     });
     const result = await response.json();
-    console.log(result,"((((((((((((((((((((((((((")
     setInfo(result.taskConfig);
   }
-
-  console.log(info,"$$$$$$$$$$$$$$")
 
   return (
     <div className="Config">
