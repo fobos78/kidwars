@@ -28,7 +28,6 @@ router.post('/', async (req, res) => {
       access: { flag: false, date: new Date().toLocaleDateString() },
     });
     await newUser.save();
-    console.log(newUser);
     req.session.user = newUser;
     // res.locals.user = req.session.user;
     const message = 'success';

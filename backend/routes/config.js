@@ -1,9 +1,23 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 import { userModel } from '../database/database.js';
 
 const router = express.Router();
+
+router.post('/access', async (req, res) => {
+  const { userEmail, password } = req.body;
+  try {
+    const passwordFind = await userModel.findOne({ email: userEmail });
+    if (passwordFind && await bcrypt.compare(password, passwordFind.password)) {
+      res.json({ password: true });
+    } else {
+      res.json({ password: false });
+    }
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 router.get('/:email', async (req, res) => {
   const { email } = req.params;
@@ -19,6 +33,7 @@ router.get('/:email', async (req, res) => {
   });
 });
 
+
 router.post('/', async (req, res) => {
   const { config, userEmail, needScore } = req.body;
   try {
@@ -33,5 +48,3 @@ router.post('/', async (req, res) => {
 });
 
 export default router;
-
-// console.log("Confi: ", config, "User из Базы:", userBD, "userEmail", userEmail);
