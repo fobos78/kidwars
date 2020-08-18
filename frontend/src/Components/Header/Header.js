@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-
 // При запуске в Электроне раскоментировать 3 строки со звездачками
 // const { remote } = window.require('electron');
 // const { app } = remote;
@@ -13,7 +12,7 @@ function Header() {
   const [auth, setAuth] = useState(status);
   const userState = useSelector((state) => state);
   const access = useSelector((state) => state.user.access.flag);
-  console.log('userState', userState);
+  // console.log('userState', userState);
 
   useEffect(() => {
     setAuth(status);

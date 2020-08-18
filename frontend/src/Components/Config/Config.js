@@ -13,6 +13,8 @@ function Config() {
   const [needScore, setNeedScore] = useState('');
   const [message, setMessage] = useState('');
 
+  const userEmail = useSelector((state) => state.user.email);
+
   useEffect(() => {
     (async () => {
       const response = await fetch(`/config/${userEmail}`);
@@ -23,10 +25,8 @@ function Config() {
       setTheme(result.theme[0]);
       setNeedScore(result.needScore);
     })();
-  }, []);
+  }, [userEmail]);
   const [flag, setFlag] = useState(true);
-
-  const userEmail = useSelector((state) => state.user.email);
 
   function changeClassName(e) {
     setClassNumber(e.target.value);
@@ -67,13 +67,13 @@ function Config() {
     setTimeout(() => { setMessage(''); }, 2000);
   }
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await fetch(`/config/${userEmail}`);
-  //     const result = await response.json();
-  //     setInfo(result);
-  //   })();
-  // }, [sendConfig]);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`/config/${userEmail}`);
+      const result = await response.json();
+      setInfo(result);
+    })();
+  }, [sendConfig]);
 
   return (
     <>

@@ -40,6 +40,15 @@ function NewTasks() {
   async function sendForm(e) {
     e.preventDefault();
     const arrAnswerOptions = answerOptions.replace(/\s+/g, '').trim().split(',');
+    // console.log({
+    //   theme,
+    //   сlassNumber,
+    //   fourth,
+    //   question,
+    //   answerOptions: arrAnswerOptions,
+    //   answerTrue,
+    //   creator,
+    // });
 
     if (answerOptions && !arrAnswerOptions.includes(answerTrue)) {
       setMessage('нет правильного варианта ответа');
@@ -64,7 +73,7 @@ function NewTasks() {
       if (resp === 'success') {
         setMessage('Задание добавлено');
         setInterval(() => { setMessage(''); }, 1500);
-      }else{
+      } else {
         setMessage('Не удалось добавить задание, попробуйте позже');
       }
     }
@@ -105,7 +114,7 @@ function NewTasks() {
 
             <label htmlFor="classNumber">
               Класс ученика
-              <select required onChange={getСlassNumber} id="classNumber" name="classNumber" className="form-control">
+              <select required onChange={getСlassNumber} id="classNumber" name="classNumber" type="number" className="form-control">
                 <option selected value="1">1</option>
                 <option value="1">2</option>
                 <option value="1">3</option>
