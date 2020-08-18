@@ -69,7 +69,6 @@ function Game() {
         dispatch({ type: 'newgame', question: Allquestions[numberOfQuestion].question, answer: Allquestions[numberOfQuestion].answerTrue });
         setAnswer('');
 
-
         if (needScore <= score + 1) {
           dispatch(changeFlag());
           const responce = await fetch('/api/done', {
@@ -84,7 +83,6 @@ function Game() {
           const resp = await responce.json();
           window.localStorage.setItem('accessFlag', JSON.stringify(true));
           window.localStorage.setItem('date', JSON.stringify(new Date().toLocaleDateString()));
-
         }
       } else {
         dispatch({ type: 'wrong', score: 1 });
@@ -106,20 +104,34 @@ function Game() {
             счет:
             {score}
           </div>
-          <button type="button" onClick={startGame}>Начать игру</button>
+          <button className="btn btn-primary" type="button" onClick={startGame}>Начать игру</button>
           <div className="blackboard">{task}</div>
           {(options.length > 1) ? (
             <>
-              <div>Варианты ответов:</div>
+              <h4>Варианты ответа:</h4>
               {options.map((option, index) => (
-                <div key={option}>
-                  {`Вариант ${index + 1} - ${option}` }
-                </div>
+
+                <i key={option}>
+                  {`Вариант ${index + 1} - `}
+                  {' '}
+                  <b>{option}</b>
+                  {index !== options.length - 1
+                    ? (
+                      <>
+                        {',  '}
+                      </>
+                    )
+                    : (
+                      <>
+                        .
+                      </>
+                    )}
+                </i>
               ))}
             </>
           ) : (
             <>
-              <div>Вариантов ответов нет</div>
+              <h4>Вариантов ответа нет</h4>
             </>
           )}
           <form onSubmit={sendAnser}>
@@ -129,7 +141,7 @@ function Game() {
               <input className="form-control" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required />
             </label>
             <br />
-            <button type="submit">Ответь</button>
+            <button className="btn btn-primary" type="submit">Ответь</button>
           </form>
         </Jumbotron>
       </Container>

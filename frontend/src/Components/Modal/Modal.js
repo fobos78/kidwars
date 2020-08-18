@@ -35,10 +35,10 @@ function Modal({ flag, setFlag }) {
         <br />
         <p className="TextConfig">Для доспупа к настройкам введите пароль</p>
         <form onSubmit={changeFlag}>
-          <input type="password" name="input" />
+          <input className="form-control" type="password" name="input" />
           <br />
           <br />
-          <button type="submit">Подтвердить пароль</button>
+          <button className="btn btn-primary" type="submit">Подтвердить пароль</button>
         </form>
         <br />
         <p className="TextError">

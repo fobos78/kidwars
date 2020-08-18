@@ -3,7 +3,7 @@ body{
 }
 
 .Header{
-  background: rgba(121, 158, 201, 0.568);
+  background: rgba(121, 158, 201, 0.76);
   width: 100%;
   color: white;
   position: fixed;
@@ -18,5 +18,5 @@ body{
   padding: 60px
 }
 .mainWindow{
-  padding-top: 85px !important
+  padding-top: 50px !important
 }
