@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/actions';
-import { clearScore } from '../redux/actions';
+import { logout } from '../../redux/actions';
+import { clearScore } from '../../redux/actions';
 
 function Logout() {
   const score = useSelector((state) => state.game.score);

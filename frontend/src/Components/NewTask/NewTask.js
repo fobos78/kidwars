@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
@@ -70,7 +69,7 @@ function NewTasks() {
     <>
       <Container>
         <Jumbotron>
-          <Link to="/game">Перейти к заданиям</Link>
+
           <h1>Новое задание</h1>
           <form name="newTask" onSubmit={sendForm}>
 

@@ -103,7 +103,12 @@ bot.on('message', async (msg) => {
   const testOk = await messageTest(`${test}/${msg.text}`); // в папке с ботом должен быть файл "cats.png"
 
   if (msg.text === testOk.email) {
-    bot.sendMessage(chatId, testOk.access.flag);
+    if(testOk.access.flag){
+      bot.sendMessage(chatId, `Доступ - открыт`);
+    } else {
+      bot.sendMessage(chatId, `Доступ - закрыт`);
+    }
+    bot.sendMessage(chatId, `Количесво очков - ${testOk.score}`);
   } 
   else {
     bot.sendPhoto(chatId, photo, { caption: 'Собачка' });
