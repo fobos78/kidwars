@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewDate, changeFlag } from '../redux/actions';
+import { addNewDate, changeFlag } from '../../redux/actions';
 
 import './style.css';
 
