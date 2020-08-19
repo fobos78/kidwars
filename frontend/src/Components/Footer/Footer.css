@@ -5,11 +5,16 @@ padding: 1;
 .Footer {
   text-align: center;
   font-size:23px;
-  background-color: rgb(200, 174, 224) ;
+  background-color: rgb(145, 113, 175) ;
   text-align: center;
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 40px;
+}
+
+.butt {
+  background-color: rgb(187, 201, 228) ;
+
 }
