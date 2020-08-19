@@ -7,7 +7,12 @@
     margin: 30px;
     width: 90%;
     height: 85%;
+<<<<<<< HEAD
+    border: 1px solid black;
+    border-radius: 4px;
+=======
     border-radius: 15px;
+>>>>>>> decd0c6535b374c0ca68f39e23e7b6bfc927135e
     position: fixed;
     top: 40px;
     left: 3%;
