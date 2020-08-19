@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, ADDSCORE
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, ADDSCORE, LOCK_ACCESS,
 } from '../actionsType';
 
 const init = {
@@ -53,6 +53,17 @@ export default function reducer(state = init, action) {
       return {
         ...state,
         score: action.payload,
+      };
+    case LOCK_ACCESS:
+      return {
+        ...state,
+        email: '',
+        auth: false,
+        access: {
+          flag: false,
+          date: '00.00.0000',
+        },
+        score: 0,
       };
     default: return state;
   }

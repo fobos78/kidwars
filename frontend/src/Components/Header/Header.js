@@ -53,7 +53,7 @@ function Header() {
       )}
       {
         // еще одна строчка
-        // access && <button onClick={() => { app.quit(); }}>Х</button>
+        // access && <button className="btn btn-primary" onClick={() => { app.quit(); }}>X</button>
       }
     </div>
   );

@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE, ADDSCORE
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE, ADDSCORE, LOCK_ACCESS,
 } from './actionsType';
 
 export function auth(user) {
@@ -45,5 +45,11 @@ export function addTotalScore(score) {
   return {
     type: ADDSCORE,
     payload: score,
+  };
+}
+
+export function lockAccess() {
+  return {
+    type: LOCK_ACCESS,
   };
 }

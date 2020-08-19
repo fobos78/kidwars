@@ -12,6 +12,7 @@ import failure2 from './images/failure2.gif';
 import failure3 from './images/failure3.gif';
 import failure4 from './images/failure4.gif';
 import failure5 from './images/failure5.gif';
+import time1 from './images/time1.gif';
 
 import './style.css';
 
@@ -43,6 +44,7 @@ function Game() {
     f3: failure3,
     f4: failure4,
     f5: failure5,
+    t1: time1,
   };
 
   function getAnswer(e) {
@@ -51,6 +53,9 @@ function Game() {
 
   useEffect(() => {
     (async () => {
+      setPath(photos[`t${1}`]);
+      setPhoto(true);
+
       const response = await fetch('/api/user', {
         method: 'POST',
         headers: {
@@ -84,6 +89,7 @@ function Game() {
       }),
     });
     const resp = await responce.json();
+    setPhoto(false);
     if (resp.tasks.length === 0) {
       setTask('По заданной теме нет заданий');
     } else {
