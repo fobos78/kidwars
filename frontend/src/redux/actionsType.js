@@ -7,3 +7,4 @@ export const CHANGEFLAG = 'CHANGEFLAG';
 export const CLEANSCORE = 'CLEANSCORE';
 export const GET_INFO_CONFIG = 'GET_INFO_CONFIG';
 export const ADDSCORE = 'ADDSCORE';
+export const LOCK_ACCESS = 'LOCK_ACCESS';

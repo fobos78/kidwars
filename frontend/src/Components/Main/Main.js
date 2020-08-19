@@ -8,7 +8,7 @@ import './Main.css';// background: linear-gradient( rgba(255, 255, 255, 0.8), rg
 
 function Main() {
   // const Bounce1 = styled.div`animation: 10s ${keyframes`${flip}`}`;
-  const Bounce = styled.div`animation: 6s ${keyframes`${zoomInUp}`}`;
+  const Bounce = styled.div`animation: 3s ${keyframes`${zoomInUp}`}`;
 
   return (
     <>
@@ -17,7 +17,7 @@ function Main() {
         <Bounce>
           {/* <p className="kid">KID WARS</p> */}
           {' '}
-          <div style={{ backgroundImage: 'url(/img/7.gif)' }} className="imgLogo" />
+          <div style={{ backgroundImage: 'url(/img/2.png)' }} className="imgLogo" />
         </Bounce>
         {/* </Bounce1> */}
       </div>
