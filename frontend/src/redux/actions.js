@@ -1,8 +1,49 @@
-import { ADD_SCORE } from './actonsType';
+import {
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, CLEANSCORE, ADDSCORE
+} from './actionsType';
 
-export function addScore(data) {
+export function auth(user) {
+  return {
+    type: SUCCESS_AUTH,
+    payload: user,
+  };
+}
+
+export function logout() {
+  return {
+    type: LOGOUT,
+  };
+}
+
+export function addScore(score) {
   return {
     type: ADD_SCORE,
-    payload: data,
+    payload: score,
+  };
+}
+
+export function addNewDate(date) {
+  return {
+    type: NEWDATE,
+    date,
+  };
+}
+
+export function changeFlag() {
+  return {
+    type: CHANGEFLAG,
+  };
+}
+
+export function clearScore() {
+  return {
+    type: CLEANSCORE,
+  };
+}
+
+export function addTotalScore(score) {
+  return {
+    type: ADDSCORE,
+    payload: score,
   };
 }

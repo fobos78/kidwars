@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd frontend && yarn build",
+    "start": "cd backend && node server.js",
+    "dev": "run-p dev-server dev-client",
+    "dev-server": "cd backend && nodemon server.js --ignore sessions",
+    "dev-client": "cd frontend && yarn start"
   },
   "repository": {
     "type": "git",
@@ -18,6 +22,17 @@
   },
   "homepage": "https://github.com/fobos78/kidwars#readme",
   "dependencies": {
-   
+    "react-animations": "^1.0.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5"
   }
 }

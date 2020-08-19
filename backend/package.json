@@ -5,18 +5,25 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js --ignore sessions"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.28"
+    "express-server": "^0.7.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.28",
+    "node-fetch": "^2.6.0",
+    "node-telegram-bot-api": "^0.50.0",
+    "session-file-store": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "nodemon": "^2.0.4"
   }
 }

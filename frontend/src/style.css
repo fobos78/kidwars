@@ -1,0 +1,22 @@
+body{
+  background: linear-gradient(90deg, powderblue, pink)
+}
+
+.Header{
+  background: rgba(121, 158, 201, 0.76);
+  width: 100%;
+  color: white;
+  position: fixed;
+}
+
+.Footer{
+  background: rgba(121, 158, 201, 0.568);
+  color: white;
+  position: fixed;
+}
+.Main{
+  padding: 60px
+}
+.mainWindow{
+  padding-top: 50px !important
+}

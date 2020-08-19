@@ -1,0 +1,52 @@
+.Config {
+  text-align: center;
+}
+.button {
+  background-color: #8e5795;
+  border: none;
+  color: white;
+  padding: 6px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  cursor: pointer;
+}
+
+.button2 {
+  color: #fff;
+  background: #c080c8;
+  padding: 6px 50px;
+  font-size: 22px;
+  margin: 4px 2px;
+  cursor: pointer;
+  user-select: none;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  outline: none;
+  transition: background 9999999s;
+}
+
+button:active {
+  background: rgb(24, 7, 19);
+  transition: background 0s;
+}
+
+.select {
+  background-color: #d696df;
+  border: none;
+  color: white;
+  padding: 6px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  border: 10;
+  border-color:rgb(246, 241, 246);
+  cursor: pointer;
+
+}
