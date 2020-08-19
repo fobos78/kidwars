@@ -14,11 +14,11 @@ function Footer() {
     <div className="Footer">
       {flagCompany && <About flagCompany={flagCompany} setFlagCompany={setFlagCompany} />}
 
-      <button className="butt" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false) }}>O компании</button>
+      <button className="btn btn-link" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false) }}>O компании</button>
       {/* & nbsp;& nbsp;& nbsp; */}
       {flag && <Contacts flag={flag} setFlag={setFlag} />}
 
-      <button className="butt" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false) }}>Контакты</button>
+      <button className="btn btn-link" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false) }}>Контакты</button>
     </div >
   );
 }
