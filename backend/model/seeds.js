@@ -2,7 +2,8 @@
 /* eslint-disable no-await-in-loop */
 import mongoose from 'mongoose';
 import fs from 'fs';
-import Card from './card.js';
+// import Card from './card.js';
+import { taskModel } from '../database/database.js';
 
 mongoose.connect('mongodb://localhost:27017/cards', {
   useNewUrlParser: true,
@@ -31,7 +32,7 @@ async function seed() {
       cardsArray[i + 7],
     ];
     const answerTrue = cardsArray[i + 8];
-    await new Card({
+    await new taskModel ({
       theme, classNumber, fourth, question, answerOptions, answerTrue,
     }).save();
   }

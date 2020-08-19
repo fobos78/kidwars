@@ -1,17 +1,18 @@
 const { app, BrowserWindow } = require('electron');
 
 app.on('ready', () => {
-  let window = new BrowserWindow({
-    width: 1600,
-    height: 800,
+  const window = new BrowserWindow({
+    width: 1280,
+    height: 775,
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
     },
     alwaysOnTop: true,
-    frame: false
+    frame: false,
   });
+  // window.setMenuBarVisibility(false);
   window.webContents.openDevTools();
-  //window.loadFile('http://localhost:3000');
+  // window.loadFile('http://localhost:3000');
   window.loadURL('http://localhost:3000');
 });
