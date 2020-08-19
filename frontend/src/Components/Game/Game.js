@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewDate, changeFlag } from '../../redux/actions';
+import { addNewDate, changeFlag, addTotalScore } from '../../redux/actions';
 
 import './style.css';
 
@@ -14,6 +14,7 @@ function Game() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.email);
   const score = useSelector((state) => state.game.score);
+  const totalScore = useSelector((state) => state.user.score);
   const access = useSelector((state) => state.user.access);
   const Allquestions = useSelector((state) => state.game.questions);
   const rightAnswer = useSelector((state) => state.game.answer);
@@ -21,6 +22,13 @@ function Game() {
   function getAnswer(e) {
     setAnswer(e.target.value);
   }
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('/api/user');
+      const result = await response.json();
+    })();
+  }, []);
 
   async function startGame() {
     const todayDate = new Date().toLocaleDateString();
@@ -57,7 +65,7 @@ function Game() {
     e.preventDefault();
     const userAnswer = e.target.answer.value;
     if (Allquestions !== '') {
-      if (userAnswer === rightAnswer) {
+      if (userAnswer.toLowerCase() === rightAnswer.toLowerCase()) {
         dispatch({ type: 'right', score: 1 });
         const numberOfQuestion = Math.floor(Math.random() * Allquestions.length);
         setTask('Верно!');
@@ -68,6 +76,18 @@ function Game() {
         setOptions(Allquestions[numberOfQuestion].answerOptions);
         dispatch({ type: 'newgame', question: Allquestions[numberOfQuestion].question, answer: Allquestions[numberOfQuestion].answerTrue });
         setAnswer('');
+
+        const responce = await fetch('/api/addscore', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user,
+          }),
+        });
+        const resp = await responce.json();
+        dispatch(addTotalScore(resp));
 
         if (needScore <= score + 1) {
           dispatch(changeFlag());
@@ -103,6 +123,9 @@ function Game() {
           <div>
             счет:
             {score}
+            <br />
+            Всего очков:
+            {totalScore}
           </div>
           <button className="btn btn-primary" type="button" onClick={startGame}>Начать игру</button>
           <div className="blackboard">{task}</div>

@@ -3,9 +3,9 @@ import { Jumbotron, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function NewTasks() {
-  const [theme, setTheme] = useState('');
-  const [сlassNumber, setСlassNumber] = useState('');
-  const [fourth, setFourth] = useState('');
+  const [theme, setTheme] = useState('Русский язык');
+  const [сlassNumber, setСlassNumber] = useState('1');
+  const [fourth, setFourth] = useState('1');
   const [question, setQuestion] = useState('');
   const [answerOptions, setAnswerOptions] = useState('');
   const [answerTrue, setAnswerTrue] = useState('');
@@ -61,7 +61,12 @@ function NewTasks() {
         }),
       });
       const resp = await responce.json();
-      setMessage(resp);
+      if (resp === 'success') {
+        setMessage('Задание добавлено');
+        setInterval(() => { setMessage(''); }, 1500);
+      }else{
+        setMessage('Не удалось добавить задание, попробуйте позже');
+      }
     }
   }
 
@@ -73,26 +78,46 @@ function NewTasks() {
           <h1>Новое задание</h1>
           <form name="newTask" onSubmit={sendForm}>
 
-            <label htmlFor="theme">
+            {/* <label htmlFor="theme">
               {' '}
               Тема
               <input className="form-control" id="theme" onChange={getTheme} name="theme" type="text" value={theme} required />
             </label>
+            <br /> */}
+
+            <label htmlFor="theme">
+              Дисциплина
+              <select required onChange={getTheme} id="theme" name="theme" className="form-control">
+                <option selected value="Русский язык">Русский язык</option>
+                <option value="Природоведение">Природоведение</option>
+                <option value="Английский язык">Английский язык</option>
+                <option value="Математика">Математика</option>
+              </select>
+            </label>
             <br />
 
-            <label htmlFor="classNumber">
+            {/* <label htmlFor="classNumber">
               {' '}
               Класс
               <input className="form-control" id="classNumber" onChange={getСlassNumber} name="classNumber" type="text" value={сlassNumber} required />
+            </label>
+            <br /> */}
+
+            <label htmlFor="classNumber">
+              Класс ученика
+              <select required onChange={getСlassNumber} id="classNumber" name="classNumber" className="form-control">
+                <option selected value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+              </select>
             </label>
             <br />
 
             <label htmlFor="fourth">
               {' '}
               Четверть
-              <select className="form-control" id="fourth" onChange={getFourth} name="fourth" type="number" defaultValue={{ label: '1', value: 1 }} required>
-                <option value="">укажите четверть</option>
-                <option value="1">1</option>
+              <select className="form-control" id="fourth" onChange={getFourth} name="fourth" type="number" required>
+                <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -109,8 +134,8 @@ function NewTasks() {
 
             <label htmlFor="answerOptions">
               {' '}
-              Варианты ответа (если они нужны, то перечислите их через запятую)
-              <input className="form-control" id="answerOptions" onChange={getAnswerOptions} name="answerOptions" type="text" value={answerOptions} />
+              Варианты ответа
+              <input className="form-control" id="answerOptions" onChange={getAnswerOptions} name="answerOptions" type="text" value={answerOptions} placeholder="если они нужны, то перечислите их через запятую" />
             </label>
             <br />
 

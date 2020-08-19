@@ -1,5 +1,5 @@
 import {
-  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG,
+  SUCCESS_AUTH, LOGOUT, ADD_SCORE, NEWDATE, CHANGEFLAG, ADDSCORE
 } from '../actionsType';
 
 const init = {
@@ -48,6 +48,11 @@ export default function reducer(state = init, action) {
           date: state.access.date,
           flag: true,
         },
+      };
+    case ADDSCORE:
+      return {
+        ...state,
+        score: action.payload,
       };
     default: return state;
   }
