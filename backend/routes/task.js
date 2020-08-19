@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
       creator,
     });
     await newTask.save();
+    console.log(newTask);
     const message = 'success';
     res.json(message);
   } catch (err) {

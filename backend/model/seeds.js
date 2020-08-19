@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-await-in-loop */
 import mongoose from 'mongoose';
 import fs from 'fs';
@@ -11,11 +12,14 @@ mongoose.connect('mongodb://localhost:27017/cards', {
 });
 
 async function seed() {
-  const cards = fs.readFileSync('./data/cards.txt', 'utf-8');
+  const cards = fs.readFileSync('./data/cards2.txt', 'utf-8');
   const cardsArray = cards.split('\n');
   cardsArray.pop();
 
-  for (let i = 0; i < 225; i += 9) {
+  // 225 cards Математика
+  // 162 cards2 Окружающий мир
+  // не забудка изменить название файла на 14 строке
+  for (let i = 0; i < 162; i += 9) {
     const theme = cardsArray[i];
     const classNumber = cardsArray[i + 1];
     const fourth = cardsArray[i + 2];
