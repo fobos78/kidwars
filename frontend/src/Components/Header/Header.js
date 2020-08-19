@@ -52,7 +52,8 @@ function Header() {
         </>
       )}
       {
-        // access && <button onClick={() => { app.quit() }}>Х</button>
+        // еще одна строчка
+        // access && <button onClick={() => { app.quit(); }}>Х</button>
       }
     </div>
   );

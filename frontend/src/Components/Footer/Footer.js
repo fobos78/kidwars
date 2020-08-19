@@ -10,10 +10,10 @@ function Footer() {
   return (
     <div className="Footer">
       {flagCompany && <About flagCompany={flagCompany} setFlagCompany={setFlagCompany} />}
-      <button class="btn btn-link" type="button" onClick={() => setFlagCompany(!flagCompany)}>O приложении</button>
+      <button className="btn btn-link" type="button" onClick={() => setFlagCompany(!flagCompany)}>O приложении</button>
       &nbsp;&nbsp;&nbsp;
       {flagContacts && <Contacts flagContacts={flagContacts} setFlagContacts={setFlagContacts} />}
-      <button class="btn btn-link" type="button" onClick={() => setFlagContacts(!flagContacts)}>Контакты</button>
+      <button className="btn btn-link" type="button" onClick={() => setFlagContacts(!flagContacts)}>Контакты</button>
     </div>
   );
 }

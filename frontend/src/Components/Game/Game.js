@@ -84,18 +84,21 @@ function Game() {
       }),
     });
     const resp = await responce.json();
-    setNeedScore(resp.needScore);
-
-    if (score < resp.needScore) {
-      dispatch({ type: 'questions', questions: resp.tasks });
-
-      const numberOfQuestion = Math.floor(Math.random() * resp.tasks.length);
-      setTask(`Вопрос: \n
-        ${resp.tasks[numberOfQuestion].question}`);
-      setOptions(resp.tasks[numberOfQuestion].answerOptions);
-      dispatch({ type: 'newgame', question: resp.tasks[numberOfQuestion].question, answer: resp.tasks[numberOfQuestion].answerTrue });
+    if (resp.tasks.length === 0) {
+      setTask('По заданной теме нет заданий');
     } else {
-      setTask('Произошла ошибка, попробуте позже');
+      setNeedScore(resp.needScore);
+      if (score < resp.needScore) {
+        dispatch({ type: 'questions', questions: resp.tasks });
+
+        const numberOfQuestion = Math.floor(Math.random() * resp.tasks.length);
+        setTask(`Вопрос: \n
+          ${resp.tasks[numberOfQuestion].question}`);
+        setOptions(resp.tasks[numberOfQuestion].answerOptions);
+        dispatch({ type: 'newgame', question: resp.tasks[numberOfQuestion].question, answer: resp.tasks[numberOfQuestion].answerTrue });
+      } else {
+        setTask('Произошла ошибка, попробуте позже');
+      }
     }
   }
 

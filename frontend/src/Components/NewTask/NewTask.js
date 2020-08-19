@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function NewTasks() {
   const [theme, setTheme] = useState('Русский язык');
-  const [сlassNumber, setСlassNumber] = useState('1');
+  const [classNumber, setClassNumber] = useState('1');
   const [fourth, setFourth] = useState('1');
   const [question, setQuestion] = useState('');
   const [answerOptions, setAnswerOptions] = useState('');
@@ -17,8 +17,8 @@ function NewTasks() {
     setTheme(e.target.value);
   }
 
-  function getСlassNumber(e) {
-    setСlassNumber(e.target.value);
+  function getClassNumber(e) {
+    setClassNumber(e.target.value);
   }
 
   function getFourth(e) {
@@ -40,15 +40,7 @@ function NewTasks() {
   async function sendForm(e) {
     e.preventDefault();
     const arrAnswerOptions = answerOptions.replace(/\s+/g, '').trim().split(',');
-    // console.log({
-    //   theme,
-    //   сlassNumber,
-    //   fourth,
-    //   question,
-    //   answerOptions: arrAnswerOptions,
-    //   answerTrue,
-    //   creator,
-    // });
+
 
     if (answerOptions && !arrAnswerOptions.includes(answerTrue)) {
       setMessage('нет правильного варианта ответа');
@@ -61,7 +53,7 @@ function NewTasks() {
         },
         body: JSON.stringify({
           theme,
-          сlassNumber,
+          classNumber,
           fourth,
           question,
           answerOptions: arrAnswerOptions,
@@ -98,7 +90,7 @@ function NewTasks() {
               Дисциплина
               <select required onChange={getTheme} id="theme" name="theme" className="form-control">
                 <option selected value="Русский язык">Русский язык</option>
-                <option value="Природоведение">Природоведение</option>
+                <option value="Окружающий мир">Окружающий мир</option>
                 <option value="Английский язык">Английский язык</option>
                 <option value="Математика">Математика</option>
               </select>
@@ -108,16 +100,17 @@ function NewTasks() {
             {/* <label htmlFor="classNumber">
               {' '}
               Класс
-              <input className="form-control" id="classNumber" onChange={getСlassNumber} name="classNumber" type="text" value={сlassNumber} required />
+              <input className="form-control" id="classNumber" onChange={getClassNumber} name="classNumber" type="text" value={classNumber} required />
             </label>
             <br /> */}
 
             <label htmlFor="classNumber">
               Класс ученика
-              <select required onChange={getСlassNumber} id="classNumber" name="classNumber" type="number" className="form-control">
+              <select required onChange={getClassNumber} id="classNumber" name="classNumber" type="number" className="form-control">
                 <option selected value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">3</option>
               </select>
             </label>
             <br />
