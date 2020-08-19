@@ -3,15 +3,15 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 30px;
     margin: 30px;
     width: 90%;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: 4px;
+    height: 85%;
+    border-radius: 15px;
     position: fixed;
     top: 40px;
     left: 3%;
-    background-color: rgb(46, 79, 122);
+    background-color: rgb(99, 126, 161);
 }
 
 .boy2 {

@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
       score: 0,
       needScore: 10,
       access: { flag: false, date: new Date().toLocaleDateString() },
+      taskConfig: { classNumber: 1, fourth: 1, theme: ['Русский язык'] },
     });
     await newUser.save();
     req.session.user = newUser;
