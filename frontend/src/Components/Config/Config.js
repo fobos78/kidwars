@@ -67,13 +67,13 @@ function Config() {
     setTimeout(() => { setMessage(''); }, 2000);
   }
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await fetch(`/config/${userEmail}`);
-  //     const result = await response.json();
-  //     setInfo(result);
-  //   })();
-  // }, [sendConfig]);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`/config/${userEmail}`);
+      const result = await response.json();
+      setInfo(result);
+    })();
+  }, [sendConfig]);
 
   return (
     <>
