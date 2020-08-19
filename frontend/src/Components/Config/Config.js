@@ -13,6 +13,8 @@ function Config() {
   const [needScore, setNeedScore] = useState('');
   const [message, setMessage] = useState('');
 
+  const userEmail = useSelector((state) => state.user.email);
+
   useEffect(() => {
     (async () => {
       const response = await fetch(`/config/${userEmail}`);
@@ -23,10 +25,8 @@ function Config() {
       setTheme(result.theme[0]);
       setNeedScore(result.needScore);
     })();
-  }, []);
+  }, [userEmail]);
   const [flag, setFlag] = useState(true);
-
-  const userEmail = useSelector((state) => state.user.email);
 
   function changeClassName(e) {
     setClassNumber(e.target.value);
@@ -99,6 +99,7 @@ function Config() {
                 <option selected={info.classNumber === 1} value={1}>{1}</option>
                 <option selected={info.classNumber === 2} value={2}>{2}</option>
                 <option selected={info.classNumber === 3} value={3}>{3}</option>
+                <option selected={info.classNumber === 4} value={4}>{4}</option>
               </select>
             </label>
             <br />
@@ -122,7 +123,7 @@ function Config() {
               должен укрепить
               <select required onChange={changeTheme} id="theme" name="theme" className="form-control">
                 <option selected={info.theme && info.theme[0] === 'Русский язык'} value="Русский язык">Русский язык</option>
-                <option selected={info.theme && info.theme[0] === 'Природоведение'} value="Природоведение">Природоведение</option>
+                <option selected={info.theme && info.theme[0] === 'Окружающий мир'} value="Окружающий мир">Окружающий мир</option>
                 <option selected={info.theme && info.theme[0] === 'Английский язык'} value="Английский язык">Английский язык</option>
                 <option selected={info.theme && info.theme[0] === 'Математика'} value="Математика">Математика</option>
               </select>

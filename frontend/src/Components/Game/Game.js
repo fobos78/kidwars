@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { addNewDate, changeFlag, addTotalScore } from '../../redux/actions';
+import success1 from './images/success1.gif';
+import success2 from './images/success2.gif';
+import success3 from './images/success3.gif';
+import success4 from './images/success4.gif';
+import success5 from './images/success5.gif';
+import failure1 from './images/failure1.gif';
+import failure2 from './images/failure2.gif';
+import failure3 from './images/failure3.gif';
+import failure4 from './images/failure4.gif';
+import failure5 from './images/failure5.gif';
 
 import './style.css';
 
@@ -10,6 +20,9 @@ function Game() {
   const [task, setTask] = useState('Самое время начать заниматься!!');
   const [needScore, setNeedScore] = useState([]);
   const [options, setOptions] = useState([]);
+  const [photo, setPhoto] = useState(false);
+  const [path, setPath] = useState('');
+  const [theme, setTheme] = useState('');
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.email);
@@ -19,16 +32,41 @@ function Game() {
   const Allquestions = useSelector((state) => state.game.questions);
   const rightAnswer = useSelector((state) => state.game.answer);
 
+  const photos = {
+    s1: success1,
+    s2: success2,
+    s3: success3,
+    s4: success4,
+    s5: success5,
+    f1: failure1,
+    f2: failure2,
+    f3: failure3,
+    f4: failure4,
+    f5: failure5,
+  };
+
   function getAnswer(e) {
     setAnswer(e.target.value);
   }
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('/api/user');
+      const response = await fetch('/api/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user,
+        }),
+      });
       const result = await response.json();
+      dispatch(addTotalScore(result.score));
+      setNeedScore(result.needScore);
+      setTheme(result.taskConfig.theme[0]);
+      dispatch({ type: 'questions', questions: [] });
     })();
-  }, []);
+  }, [dispatch]);
 
   async function startGame() {
     const todayDate = new Date().toLocaleDateString();
@@ -46,33 +84,40 @@ function Game() {
       }),
     });
     const resp = await responce.json();
-    setNeedScore(resp.needScore);
-
-    if (score < resp.needScore) {
-      dispatch({ type: 'questions', questions: resp.tasks });
-
-      const numberOfQuestion = Math.floor(Math.random() * resp.tasks.length);
-      setTask(`Вопрос: \n
-        ${resp.tasks[numberOfQuestion].question}`);
-      setOptions(resp.tasks[numberOfQuestion].answerOptions);
-      dispatch({ type: 'newgame', question: resp.tasks[numberOfQuestion].question, answer: resp.tasks[numberOfQuestion].answerTrue });
+    if (resp.tasks.length === 0) {
+      setTask('По заданной теме нет заданий');
     } else {
-      setTask('Произошла ошибка, попробуте позже');
+      setNeedScore(resp.needScore);
+      if (score < resp.needScore) {
+        dispatch({ type: 'questions', questions: resp.tasks });
+
+        const numberOfQuestion = Math.floor(Math.random() * resp.tasks.length);
+        setTask(`Вопрос: \n
+          ${resp.tasks[numberOfQuestion].question}`);
+        setOptions(resp.tasks[numberOfQuestion].answerOptions);
+        dispatch({ type: 'newgame', question: resp.tasks[numberOfQuestion].question, answer: resp.tasks[numberOfQuestion].answerTrue });
+      } else {
+        setTask('Произошла ошибка, попробуте позже');
+      }
     }
   }
 
   async function sendAnser(e) {
     e.preventDefault();
+    const number = Math.floor(Math.random() * 5) + 1;
     const userAnswer = e.target.answer.value;
     if (Allquestions !== '') {
       if (userAnswer.toLowerCase() === rightAnswer.toLowerCase()) {
         dispatch({ type: 'right', score: 1 });
         const numberOfQuestion = Math.floor(Math.random() * Allquestions.length);
         setTask('Верно!');
+        setPath(photos[`s${number}`]);
+        setPhoto(true);
         setTimeout(() => {
           setTask(`Вопрос: \n
           ${Allquestions[numberOfQuestion].question}`);
-        }, 1000);
+          setPhoto(false);
+        }, 2000);
         setOptions(Allquestions[numberOfQuestion].answerOptions);
         dispatch({ type: 'newgame', question: Allquestions[numberOfQuestion].question, answer: Allquestions[numberOfQuestion].answerTrue });
         setAnswer('');
@@ -91,7 +136,7 @@ function Game() {
 
         if (needScore <= score + 1) {
           dispatch(changeFlag());
-          const responce = await fetch('/api/done', {
+          const doneresponce = await fetch('/api/done', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -100,7 +145,7 @@ function Game() {
               user,
             }),
           });
-          const resp = await responce.json();
+          const resp = await doneresponce.json();
           window.localStorage.setItem('accessFlag', JSON.stringify(true));
           window.localStorage.setItem('date', JSON.stringify(new Date().toLocaleDateString()));
         }
@@ -108,9 +153,12 @@ function Game() {
         dispatch({ type: 'wrong', score: 1 });
         const repeate = task;
         setTask('Не верно! Попробуй еще раз');
+        setPath(photos[`f${number}`]);
+        setPhoto(true);
         setTimeout(() => {
           setTask(repeate);
-        }, 1000);
+          setPhoto(false);
+        }, 2000);
         setAnswer('');
       }
     }
@@ -121,14 +169,44 @@ function Game() {
       <Container>
         <Jumbotron>
           <div>
-            счет:
-            {score}
+            <b>Задания на сегодня:</b>
+            {' '}
+            {`${score} из ${needScore}`}
             <br />
-            Всего очков:
+            <b>Всего очков:</b>
+            {' '}
             {totalScore}
           </div>
-          <button className="btn btn-primary" type="button" onClick={startGame}>Начать игру</button>
-          <div className="blackboard">{task}</div>
+          { Allquestions.length === 0 ? (
+            <>
+              <div className="needPlace">
+                <button className="btn btn-primary" type="button" onClick={startGame}>Начать</button>
+              </div>
+            </>
+          )
+            : (
+              <>
+                <div className="needPlace">
+                  <b>Сегодняшняя тема:</b>
+                  {' '}
+                  {theme}
+                </div>
+              </>
+            )}
+
+          <div className="blackboard">
+            {task}
+            <br />
+            { photo ? (
+              <>
+                <img className="image" src={path} alt="Logo" />
+              </>
+            )
+              : (
+                <>
+                </>
+              )}
+          </div>
           {(options.length > 1) ? (
             <>
               <h4>Варианты ответа:</h4>

@@ -18,6 +18,7 @@ import editRouter from './routes/edit.js';
 import doneRouter from './routes/done.js';
 import configRouter from './routes/config.js';
 import addScoreRouter from './routes/addscore.js';
+import userRouter from './routes/user.js';
 
 dotenv.config();
 const fileStore = fS(session);
@@ -60,6 +61,7 @@ app.use('/api/done', doneRouter);
 app.use('/edit', editRouter);
 app.use('/config', configRouter);
 app.use('/api/addscore', addScoreRouter);
+app.use('/api/user', userRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
