@@ -1,5 +1,6 @@
 .Config {
   text-align: center;
+  margin: 50px;
 }
 .button {
   background-color: #8e5795;
@@ -49,4 +50,9 @@ button:active {
   border-color:rgb(246, 241, 246);
   cursor: pointer;
 
+}
+.links{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
 }

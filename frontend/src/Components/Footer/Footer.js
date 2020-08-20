@@ -17,15 +17,16 @@ function Footer() {
     <div className="Footer">
       {flagCompany && <About flagCompany={flagCompany} setFlagCompany={setFlagCompany} />}
 
-      <button className="btn btn-link" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false); setVideo(false); }}>O компании</button>
-      {/* & nbsp;& nbsp;& nbsp; */}
+      <button className="btn btn-outline-light" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false); setVideo(false); }}>O компании</button>
       {flag && <Contacts flag={flag} setFlag={setFlag} />}
+      &nbsp;&nbsp;
 
-      <button className="btn btn-link" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false); setVideo(false); }}>Контакты</button>
+      <button className="btn btn-outline-light" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false); setVideo(false); }}>Контакты</button>
+      &nbsp;&nbsp;
 
       {video && <Video video={video} setVideo={setVideo} />}
 
-      <button className="btn btn-link" type="button" onClick={() => { setVideo(!video); setFlagCompany(false); setFlag(false); }}>Видео иструкция</button>
+      <button className="btn btn-outline-light" type="button" onClick={() => { setVideo(!video); setFlagCompany(false); setFlag(false); }}>Видео иструкция</button>
 
     </div>
   );

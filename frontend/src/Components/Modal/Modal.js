@@ -37,8 +37,8 @@ function Modal({ flag, setFlag }) {
         <form onSubmit={changeFlag}>
           <input className="form-control" type="password" name="input" />
           <br />
-          <br />
           <button className="btn btn-primary" type="submit">Подтвердить пароль</button>
+          <br />
         </form>
         <br />
         <p className="TextError">

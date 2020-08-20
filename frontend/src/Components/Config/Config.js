@@ -78,23 +78,34 @@ function Config() {
   return (
     <>
       {flag && <Modal flag={flag} setFlag={setFlag} />}
+      <div className="Config">
+        <h2>
+          {' '}
+          Настройки пользователя
+          <br />
+          {message}
+        </h2>
+      </div>
       <Container>
-        <Jumbotron>
-          <div><Link to="/logout">Выйти из учетной записи</Link></div>
-          <div><Link to="/task"> Добавить задание </Link></div>
-          <div className="Config">
-            <h2>
-              {' '}
-              Настройки пользователя
-              {` ${info.userName}`}
-              <br />
-              {message}
-            </h2>
+        <Jumbotron class="justify-content-around">
+          <div className="links">
+            <h2><Link class="btn btn-primary" to="/task"> Добавить задание</Link></h2>
+            <h2><Link class="btn btn-primary" to="/tasks"> Мои задания</Link></h2>
+            <h2><Link class="btn btn-danger" to="/logout">Выйти из учетной записи</Link></h2>
           </div>
+          <h4>
+            {` ${info.userName}`}
+            , настройте схему обучения
+          </h4>
           <form onSubmit={sendConfig} name="form">
 
             <label htmlFor="classNumber">
-              Класс ученика
+              <h5>
+                В каком классе
+                {' '}
+                {info.kidName}
+                ?
+              </h5>
               <select required onChange={changeClassName} id="classNumber" name="classNumber" className="form-control">
                 <option selected={info.classNumber === 1} value={1}>{1}</option>
                 <option selected={info.classNumber === 2} value={2}>{2}</option>
@@ -105,7 +116,7 @@ function Config() {
             <br />
 
             <label htmlFor="fourth">
-              Четверть
+              <h5>Какая четверть?</h5>
               <select required onChange={changeFourth} id="fourth" name="fourth" className="form-control">
                 <option selected={info.fourth === 1} value={1}>{1}</option>
                 <option selected={info.fourth === 2} value={2}>{2}</option>
@@ -116,11 +127,7 @@ function Config() {
             <br />
 
             <label htmlFor="theme">
-              Дисциплина, которую
-              {' '}
-              {info.kidName}
-              {' '}
-              должен укрепить
+              <h5>Дисциплина, которую нужно укрепить</h5>
               <select required onChange={changeTheme} id="theme" name="theme" className="form-control">
                 <option selected={info.theme && info.theme[0] === 'Русский язык'} value="Русский язык">Русский язык</option>
                 <option selected={info.theme && info.theme[0] === 'Окружающий мир'} value="Окружающий мир">Окружающий мир</option>
@@ -131,7 +138,7 @@ function Config() {
             <br />
 
             <label htmlFor="needScore">
-              Количество очков необходимых для доступа:
+              <h5>Количество очков необходимых для доступа:</h5>
               <input className="form-control" required onChange={changeNeedScore} type="text" name="needScore" id="needScore" value={needScore} />
             </label>
             <br />

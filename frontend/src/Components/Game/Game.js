@@ -156,7 +156,11 @@ function Game() {
           window.localStorage.setItem('date', JSON.stringify(new Date().toLocaleDateString()));
         }
       } else {
-        dispatch({ type: 'wrong', score: 1 });
+        if (score === 0) {
+          dispatch({ type: 'wrong', score: 0 });
+        } else {
+          dispatch({ type: 'wrong', score: 1 });
+        }
         const repeate = task;
         setTask('Не верно! Попробуй еще раз');
         setPath(photos[`f${number}`]);
@@ -172,86 +176,114 @@ function Game() {
 
   return (
     <>
-      <Container>
-        <Jumbotron>
-          <div>
-            <b>Задания на сегодня:</b>
-            {' '}
-            {`${score} из ${needScore}`}
-            <br />
-            <b>Всего очков:</b>
-            {' '}
-            {totalScore}
-          </div>
-          { Allquestions.length === 0 ? (
-            <>
-              <div className="needPlace">
-                <button className="btn btn-primary" type="button" onClick={startGame}>Начать</button>
-              </div>
-            </>
-          )
-            : (
+      {/* <Container classMane="gamefield"> */}
+      <Jumbotron className="jumbotron1">
+        <div>
+          <div className="boards">
+
+            {/* доска статистики */}
+            <div className="statistic">
+              <b>Всего очков:</b>
+              {' '}
+              {totalScore}
+              <br />
+
+              <b>Задания на сегодня:</b>
+              {' '}
+              {`${score} из ${needScore}`}
+              <br />
+
               <>
-                <div className="needPlace">
-                  <b>Сегодняшняя тема:</b>
-                  {' '}
-                  {theme}
+                <div className="progress">
+                  <div className="progress-bar" role="progressbar" aria-valuenow={score} aria-valuemin="0" aria-valuemax={needScore} style={{ width: `${100 / needScore * score}%` }} />
                 </div>
               </>
-            )}
 
-          <div className="blackboard">
-            {task}
-            <br />
-            { photo ? (
-              <>
-                <img className="image" src={path} alt="Logo" />
-              </>
-            )
-              : (
+              {Allquestions.length === 0 ? (
                 <>
+
+                  <div className="needPlace">
+                    <button className="btn btn-info" type="button" onClick={startGame}>СТАРТ</button>
+                  </div>
                 </>
-              )}
+              )
+                : (
+                  <>
+                    <div className="needPlace">
+
+                      <b>Сегодняшняя тема:</b>
+                      {' '}
+                      {theme}
+                    </div>
+                  </>
+                )}
+            </div>
+
+            {/* доска с заданием  */}
+            <div className="blackboard">
+              {task}
+              <br />
+              {photo ? (
+                <>
+                  <img className="image" src={path} alt="Logo" />
+                </>
+              )
+                : (
+                  <>
+                  </>
+                )}
+            </div>
           </div>
+
+        </div>
+
+        <div className="answer">
+
           {(options.length > 1) ? (
             <>
-              <h4>Варианты ответа:</h4>
+              {/* <h4>Варианты ответа:</h4> */}
               {options.map((option, index) => (
+                <div>
 
-                <i key={option}>
-                  {`Вариант ${index + 1} - `}
-                  {' '}
-                  <b>{option}</b>
-                  {index !== options.length - 1
-                    ? (
-                      <>
-                        {',  '}
-                      </>
-                    )
-                    : (
-                      <>
-                        .
-                      </>
-                    )}
-                </i>
+                  <i key={option}>
+                    {`${index + 1}) - `}
+                    {' '}
+                    <b>{option}</b>
+                    {index !== options.length - 1
+                      ? (
+                        <>
+                          {',  '}
+                        </>
+                      )
+                      : (
+                        <>
+                          .
+                        </>
+                      )}
+                  </i>
+
+                </div>
               ))}
+              <form onSubmit={sendAnser}>
+                <label htmlFor="answer">
+                  {/* {' '}
+              Ответ */}
+                  <input className="form-control" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
+                </label>
+                {/* <br /> */}
+                <button className="btn btn-secondary" type="submit">Ответь</button>
+              </form>
             </>
           ) : (
             <>
-              <h4>Вариантов ответа нет</h4>
+              {/* <h4>Вариантов ответа нет</h4> */}
             </>
           )}
-          <form onSubmit={sendAnser}>
-            <label htmlFor="answer">
-              {' '}
-              Ответ
-              <input className="form-control" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required />
-            </label>
-            <br />
-            <button className="btn btn-primary" type="submit">Ответь</button>
-          </form>
-        </Jumbotron>
-      </Container>
+
+        </div>
+
+      </Jumbotron>
+      {/* </Container> */}
 
     </>
   );
