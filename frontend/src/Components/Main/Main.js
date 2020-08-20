@@ -39,7 +39,7 @@ function Main() {
           </h2> */}
         </div>
         <div className="best">
-          <h2>Лучшие ученики:</h2>
+          {/* <h2>Лучшие ученики:</h2>
           <div>
             {users.map((user) => (
               <>
@@ -55,7 +55,7 @@ function Main() {
                 </div>
               </>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -183,21 +183,24 @@ function Game() {
 
             {/* доска статистики */}
             <div className="statistic">
-              <b>Всего очков:</b>
-              {' '}
-              {totalScore}
-              <br />
-
-              <b>Задания на сегодня:</b>
-              {' '}
-              {`${score} из ${needScore}`}
-              <br />
-
               <>
                 <div className="progress">
                   <div className="progress-bar" role="progressbar" aria-valuenow={score} aria-valuemin="0" aria-valuemax={needScore} style={{ width: `${100 / needScore * score}%` }} />
                 </div>
               </>
+              <b>Всего очков:</b>
+              <b>
+                {' '}
+                {totalScore}
+              </b>
+              <br />
+
+              <b>Выполнено:</b>
+              <b>
+                {' '}
+                {`${score} из ${needScore}`}
+              </b>
+              <br />
 
               {Allquestions.length === 0 ? (
                 <>
@@ -212,8 +215,12 @@ function Game() {
                     <div className="needPlace">
 
                       <b>Сегодняшняя тема:</b>
-                      {' '}
-                      {theme}
+                      <br />
+                      <b>
+                        {' '}
+                        {theme}
+
+                      </b>
                     </div>
                   </>
                 )}
@@ -246,7 +253,7 @@ function Game() {
                 <div>
 
                   <i key={option}>
-                    {`${index + 1}) - `}
+                    {`${index + 1})  `}
                     {' '}
                     <b>{option}</b>
                     {index !== options.length - 1
@@ -264,19 +271,28 @@ function Game() {
 
                 </div>
               ))}
-              <form onSubmit={sendAnser}>
+              <form className="submitform" onSubmit={sendAnser}>
                 <label htmlFor="answer">
                   {/* {' '}
               Ответ */}
-                  <input className="form-control" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
+                  <input className="form-control submitform" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
                 </label>
                 {/* <br /> */}
-                <button className="btn btn-secondary" type="submit">Ответь</button>
+                <button className="btn btn-secondary submitform" type="submit">Ответ</button>
               </form>
             </>
           ) : (
             <>
               {/* <h4>Вариантов ответа нет</h4> */}
+              <form className="submitform" onSubmit={sendAnser}>
+                <label htmlFor="answer">
+                  {/* {' '}
+              Ответ */}
+                  <input className="form-control submitform" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
+                </label>
+                {/* <br /> */}
+                <button className="btn btn-secondary submitform" type="submit">Ответ</button>
+              </form>
             </>
           )}
 
