@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, globalShortcut } = require('electron');
 
 app.on('ready', () => {
   const window = new BrowserWindow({
@@ -15,4 +15,7 @@ app.on('ready', () => {
   window.webContents.openDevTools();
   // window.loadFile('http://localhost:3000');
   window.loadURL('http://localhost:3000');
+  const showNow = globalShortcut.register('alt+f4', () => {
+    window.show();
+  });
 });

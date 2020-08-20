@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 // При запуске в Электроне раскоментировать 3 строки со звездачками
-// const { remote } = window.require('electron');
-// const { app } = remote;
+const { remote } = window.require('electron');
+const { app } = remote;
 
 function Header() {
   const status = useSelector((state) => state.user.auth);
@@ -53,7 +53,7 @@ function Header() {
       )}
       {
         // еще одна строчка
-        // access && <button className="btn btn-primary" onClick={() => { app.quit(); }}>X</button>
+        access && <button className="btn btn-primary" onClick={() => { app.quit(); }}>X</button>
       }
     </div>
   );

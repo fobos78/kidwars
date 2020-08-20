@@ -17,10 +17,10 @@ import Game from './Components/Game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Router>
+// function App() {
+//   return (
+//     <Provider store={store}>
+{/* <Router>
         <Header />
         <div className="mainWindow">
           <Switch>
@@ -49,6 +49,53 @@ function App() {
         <Footer />
       </Router>
     </Provider>
+  );
+} */}
+
+function App() {
+
+  document.addEventListener('keydown', (e) => {
+    const { key, altKey } = e;
+    if (key === 'F4' && altKey) {
+      e.preventDefault();
+      console.log('работает');
+    }
+  });
+
+  return (
+    <>
+      <Provider store={store}>
+        <Router>
+          <Header />
+          <div className="mainWindow">
+            <Switch>
+              <Route path="/config">
+                <Config />
+              </Route>
+              <Route path="/singin">
+                <SingIn />
+              </Route>
+              <Route path="/task">
+                <NewTask />
+              </Route>
+              <Route path="/game">
+                <Game />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/logout">
+                <Logout />
+              </Route>
+              <Main />
+              <Route path="/" />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </Provider>
+
+    </>
   );
 }
 
