@@ -34,7 +34,7 @@ function Contacts({ flag, setFlag }) {
                 &#9875; Адрес:&nbsp; г.Москва, ул.Вавилова 1
               </div>
             </div>
-            <a href="https://instagram.com/elbrus.bootcamp?igshid=budzhhlq4hp5" target="blank"><div style={{ backgroundImage: 'url(/img/insta.jpeg)' }} className="insta" /></a>
+            <a href="https://instagram.com/elbrus.bootcamp?igshid=budzhhlq4hp5" target="blank"><div style={{ backgroundImage: 'url(/img/insta.png)' }} className="insta" /></a>
 
             <a href="https://vk.com/elbrusbootcamp" target="blank">
               {' '}

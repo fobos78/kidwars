@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Footer.css';
-import About from '../About';
-import Contacts from '../Contacts';
 import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
+import About from '../About';
+import Contacts from '../Contacts';
 
 function Footer() {
   const Fadein = styled.div`animation: 2.5s ${keyframes`${fadeIn}`}`;
@@ -14,12 +14,13 @@ function Footer() {
     <div className="Footer">
       {flagCompany && <About flagCompany={flagCompany} setFlagCompany={setFlagCompany} />}
 
-      <button className="btn btn-link" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false) }}>O компании</button>
+      <button className="btn btn-outline-light" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false); }}>O компании</button>
+      &nbsp;&nbsp;
       {/* & nbsp;& nbsp;& nbsp; */}
       {flag && <Contacts flag={flag} setFlag={setFlag} />}
 
-      <button className="btn btn-link" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false) }}>Контакты</button>
-    </div >
+      <button className="btn btn-outline-light" type="button" onClick={() => { setFlag(!flag); setFlagCompany(false); }}>Контакты</button>
+    </div>
   );
 }
 

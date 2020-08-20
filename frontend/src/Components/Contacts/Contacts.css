@@ -16,16 +16,16 @@
 .insta {
   width: 70px;
   height: 70px;
-  border: 2px solid rgb(239, 223, 253);
-  border-radius: 8px;
+  /* border: 2px solid rgb(239, 223, 253); */
+  border-radius: 11px;
   background-size: cover;
 }
 
 .vk {
   width: 70px;
   height: 70px;
-  border: 2px solid rgb(239, 223, 253);
-  border-radius: 8px;
+  /* border: 2px solid rgb(239, 223, 253); */
+  border-radius: 11px;
   background-size: cover;
   
 }

@@ -2,10 +2,15 @@
   padding: 8px;
   text-align: center;
   font-size: 30px;
-  background-color: rgb(200, 174, 224);
+  /* background-color: rgb(200, 174, 224); */
   font-size:23px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 50px;
+  height: 70px;
 }
+
+.right{
+  margin-left: auto;
+}
+

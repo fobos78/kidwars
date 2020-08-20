@@ -20,35 +20,44 @@ function Header() {
 
   return (
     <div className="Header">
-      <div>
-        {access
-          ? (
-            <>
-              Доступ открыт
-            </>
-          )
-          : (
-            <>
-              Доступ закрыт
-            </>
-          )}
-      </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
       {!auth ? (
         <>
-          <span><Link to="/login">Войти</Link></span>
+          <div className="right">
+            <span><Link to="/login">Вход</Link></span>
+          &nbsp;&nbsp;/&nbsp;&nbsp;
+            <span><Link to="/singin"> Регистрация</Link></span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span><Link to="/singin"> Зарегистрироваться</Link></span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
         </>
       ) : (
         <>
-          <Link to="/">На главную</Link>
+          <div>
+            {access
+              ? (
+                <>
+                  Доступ открыт
+                </>
+              )
+              : (
+                <>
+                  Доступ закрыт
+                </>
+              )}
+          </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span><Link to="/config"> Личный кабинет</Link></span>
+          <Link to="/game">
+
+            <img src="./img/1.png" className="icon" alt="icon" />
+
+          </Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+            <Link to="/">На главную</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link to="/game">Задания</Link>
+            <span><Link to="/config"> Личный кабинет</Link></span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
         </>
       )}
       {
