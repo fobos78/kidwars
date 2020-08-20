@@ -46,8 +46,9 @@
 .exit {
   display: flex;
   justify-content: flex-end;
-  width: 95%;
+  width: 94%;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .card {

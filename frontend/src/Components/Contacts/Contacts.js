@@ -16,7 +16,6 @@ function Contacts({ flag, setFlag }) {
         <div onClick={() => setFlag(!flag)} className="exit"> &#10008; </div>
         <Fadein>
 
-          {/* <button className="close" onClick={() => setFlag(!flag)} type="button">Закрыть</button> */}
           <h1>Контакты</h1>
 
           <h3>Мы на карте Москвы</h3>
