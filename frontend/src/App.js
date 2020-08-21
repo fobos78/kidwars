@@ -53,15 +53,6 @@ import './style.css';
 } */}
 
 function App() {
-
-  document.addEventListener('keydown', (e) => {
-    const { key, altKey } = e;
-    if (key === 'F4' && altKey) {
-      e.preventDefault();
-      console.log('работает');
-    }
-  });
-
   return (
     <>
       <Provider store={store}>

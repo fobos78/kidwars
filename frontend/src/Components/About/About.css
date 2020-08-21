@@ -16,28 +16,6 @@
   font-size: 70%;
 }
 
-.boy2 {
-  width: 600px;
-  height: 450px;
-  border: 2px solid rgb(239, 223, 253);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-}
-
-.rebenok {
-  width: 600px;
-  height: 450px;
-  border: 2px solid rgb(239, 223, 253);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-}
-
 .exit2 {
   display: flex;
   justify-content: flex-end;

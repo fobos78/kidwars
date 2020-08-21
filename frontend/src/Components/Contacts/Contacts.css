@@ -16,7 +16,6 @@
 .insta {
   width: 70px;
   height: 70px;
-  /* border: 2px solid rgb(239, 223, 253); */
   border-radius: 11px;
   background-size: cover;
 }
@@ -24,12 +23,17 @@
 .vk {
   width: 70px;
   height: 70px;
-  /* border: 2px solid rgb(239, 223, 253); */
   border-radius: 11px;
   background-size: cover;
-  
 }
 
+.telega {
+  width: 70px;
+  height: 70px;
+  border-radius: 11px;
+  background-size: cover;
+
+}
 .net {
   display: flex;
   width: 100%;
@@ -42,6 +46,7 @@
   flex-direction:column;
   justify-content:center;
   align-items: start;
+  margin-top: -20px;
 }
 .exit {
   display: flex;
