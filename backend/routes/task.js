@@ -3,6 +3,13 @@ import { taskModel } from '../database/database.js';
 
 const router = express.Router();
 
+router.get('/:email', async (req, res) => {
+  const { email } = req.params;
+  console.log(email);
+  const tasks = await taskModel.find({ creator: email });
+  res.json(tasks);
+});
+
 router.post('/', async (req, res) => {
   const {
     theme,

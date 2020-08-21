@@ -14,6 +14,7 @@ import Logout from './Components/Logout';
 import Header from './Components/Header';
 import NewTask from './Components/NewTask';
 import Game from './Components/Game';
+import Tasks from './Components/Tasks';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route path="/logout">
               <Logout />
+            </Route>
+            <Route path="/tasks">
+              <Tasks />
             </Route>
             <Main />
             <Route path="/" />

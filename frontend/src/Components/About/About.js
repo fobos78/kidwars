@@ -12,7 +12,7 @@ function About({ flagCompany, setFlagCompany }) {
       <Bounce>
         <div className="About">
           <div onClick={() => setFlagCompany(!flagCompany)} className="exit2"> &#10008; </div>
-         
+
           <h1>Информация о приложении</h1>
           <p>
             В современном мире дети проводят за компьютерными играми огромное количество времени, а ведь компьютер можно и нужно использовать и в других целях.
