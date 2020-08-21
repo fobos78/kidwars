@@ -53,8 +53,8 @@ function Header() {
           </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div>
-            <Link to="/">На главную</Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {/* <Link to="/">На главную</Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
             <span><Link to="/config"> Личный кабинет</Link></span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>

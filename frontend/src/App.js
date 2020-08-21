@@ -14,13 +14,14 @@ import Logout from './Components/Logout';
 import Header from './Components/Header';
 import NewTask from './Components/NewTask';
 import Game from './Components/Game';
+import Tasks from './Components/Tasks';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-// function App() {
-//   return (
-//     <Provider store={store}>
-{/* <Router>
+function App() {
+  return (
+    <Provider store={store}>
+      <Router>
         <Header />
         <div className="mainWindow">
           <Switch>
@@ -42,6 +43,9 @@ import './style.css';
             <Route path="/logout">
               <Logout />
             </Route>
+            <Route path="/tasks">
+              <Tasks />
+            </Route>
             <Main />
             <Route path="/" />
           </Switch>
@@ -49,44 +53,6 @@ import './style.css';
         <Footer />
       </Router>
     </Provider>
-  );
-} */}
-
-function App() {
-  return (
-    <>
-      <Provider store={store}>
-        <Router>
-          <Header />
-          <div className="mainWindow">
-            <Switch>
-              <Route path="/config">
-                <Config />
-              </Route>
-              <Route path="/singin">
-                <SingIn />
-              </Route>
-              <Route path="/task">
-                <NewTask />
-              </Route>
-              <Route path="/game">
-                <Game />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/logout">
-                <Logout />
-              </Route>
-              <Main />
-              <Route path="/" />
-            </Switch>
-          </div>
-          <Footer />
-        </Router>
-      </Provider>
-
-    </>
   );
 }
 

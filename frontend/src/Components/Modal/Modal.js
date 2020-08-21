@@ -34,7 +34,7 @@ function Modal({ flag, setFlag }) {
       <div className="Modal">
         <br />
         <p className="TextConfig">Для доспупа к настройкам введите пароль</p>
-        <form onSubmit={changeFlag}>
+        <form className='modalform' onSubmit={changeFlag}>
           <input className="form-control" type="password" name="input" />
           <br />
           <button className="btn btn-primary" type="submit">Подтвердить пароль</button>

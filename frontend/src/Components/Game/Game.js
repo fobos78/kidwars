@@ -12,7 +12,15 @@ import failure2 from './images/failure2.gif';
 import failure3 from './images/failure3.gif';
 import failure4 from './images/failure4.gif';
 import failure5 from './images/failure5.gif';
+import victory1 from './images/victory1.gif';
+import victory2 from './images/victory2.gif';
+import victory3 from './images/victory3.gif';
+import victory4 from './images/victory4.gif';
+import victory5 from './images/victory5.gif';
+import victory6 from './images/victory6.gif';
+import victory7 from './images/victory7.gif';
 import time1 from './images/time1.gif';
+// import check from './images/galochka_1.png';
 
 import './style.css';
 
@@ -44,6 +52,13 @@ function Game() {
     f3: failure3,
     f4: failure4,
     f5: failure5,
+    v1: victory1,
+    v2: victory2,
+    v3: victory3,
+    v4: victory4,
+    v5: victory5,
+    v6: victory6,
+    v7: victory7,
     t1: time1,
   };
 
@@ -140,7 +155,7 @@ function Game() {
         const resp = await responce.json();
         dispatch(addTotalScore(resp));
 
-        if (needScore <= score + 1) {
+        if (needScore === score + 1) {
           dispatch(changeFlag());
           const doneresponce = await fetch('/api/done', {
             method: 'POST',
@@ -154,6 +169,25 @@ function Game() {
           const resp = await doneresponce.json();
           window.localStorage.setItem('accessFlag', JSON.stringify(true));
           window.localStorage.setItem('date', JSON.stringify(new Date().toLocaleDateString()));
+          /// ///////////
+
+          setTimeout(() => {
+            setTask('Доступ разблокирован!!');
+            setPhoto(true);
+            setPath(photos.v1);
+            setTimeout(() => { setPath(photos.v2); }, 1500);
+            setTimeout(() => { setPath(photos.v3); }, 2100);
+            setTimeout(() => { setPath(photos.v5); }, 3800);
+            setTimeout(() => { setPath(photos.v6); }, 5000);
+            setTimeout(() => { setPath(photos.v7); }, 7000);
+          }, 2000);
+          setTimeout(() => {
+            setTask(`Вопрос: \n
+            ${Allquestions[numberOfQuestion].question}`);
+            setPhoto(false);
+          }, 12000);
+
+          /// ////////
         }
       } else {
         if (score === 0) {
@@ -183,21 +217,24 @@ function Game() {
 
             {/* доска статистики */}
             <div className="statistic">
-              <b>Всего очков:</b>
-              {' '}
-              {totalScore}
-              <br />
-
-              <b>Задания на сегодня:</b>
-              {' '}
-              {`${score} из ${needScore}`}
-              <br />
-
               <>
                 <div className="progress">
                   <div className="progress-bar" role="progressbar" aria-valuenow={score} aria-valuemin="0" aria-valuemax={needScore} style={{ width: `${100 / needScore * score}%` }} />
                 </div>
               </>
+              <b>Всего очков:</b>
+              <b>
+                {' '}
+                {totalScore}
+              </b>
+              <br />
+
+              <b>Выполнено:</b>
+              <b>
+                {' '}
+                {`${score} из ${needScore}`}
+              </b>
+              <br />
 
               {Allquestions.length === 0 ? (
                 <>
@@ -212,8 +249,12 @@ function Game() {
                     <div className="needPlace">
 
                       <b>Сегодняшняя тема:</b>
-                      {' '}
-                      {theme}
+                      <br />
+                      <b>
+                        {' '}
+                        {theme}
+
+                      </b>
                     </div>
                   </>
                 )}
@@ -246,7 +287,7 @@ function Game() {
                 <div>
 
                   <i key={option}>
-                    {`${index + 1}) - `}
+                    {`${index + 1})  `}
                     {' '}
                     <b>{option}</b>
                     {index !== options.length - 1
@@ -264,21 +305,38 @@ function Game() {
 
                 </div>
               ))}
-              <form onSubmit={sendAnser}>
+              {/* <form className="submitform" onSubmit={sendAnser}>
                 <label htmlFor="answer">
-                  {/* {' '}
-              Ответ */}
-                  <input className="form-control" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
+                  <input className="form-control submitform" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
                 </label>
-                {/* <br /> */}
-                <button className="btn btn-secondary" type="submit">Ответь</button>
-              </form>
+                <button className="btn btn-secondary submitform" type="submit">Ответ</button>
+              </form> */}
             </>
           ) : (
             <>
               {/* <h4>Вариантов ответа нет</h4> */}
+              {/* btn btn-secondary submitform */}
             </>
           )}
+
+          {Allquestions.length === 0 ? (
+            <>
+
+            </>
+          )
+            : (
+              <>
+                <form className="submitform" onSubmit={sendAnser}>
+                  <label htmlFor="answer">
+                    {/* {' '}
+              Ответ */}
+                    <input className="form-control submitform" id="answer" onChange={getAnswer} name="answer" type="text" value={answer} required autoComplete="off" />
+                  </label>
+                  {/* <br /> */}
+                  <button className="checkbutton" type="submit" />
+                </form>
+              </>
+            )}
 
         </div>
 

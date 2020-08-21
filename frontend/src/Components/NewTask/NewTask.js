@@ -110,7 +110,7 @@ function NewTasks() {
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-                <option value="4">3</option>
+                <option value="4">4</option>
               </select>
             </label>
             <br />
@@ -136,14 +136,14 @@ function NewTasks() {
 
             <label htmlFor="answerOptions">
               {' '}
-              Варианты ответа
-              <input className="form-control" id="answerOptions" onChange={getAnswerOptions} name="answerOptions" type="text" value={answerOptions} placeholder="если они нужны, то перечислите их через запятую" />
+              Перечислите варианты ответа через запятую
+              <input className="form-control" id="answerOptions" onChange={getAnswerOptions} name="answerOptions" type="text" value={answerOptions} placeholder="если они нужны)" />
             </label>
             <br />
 
             <label htmlFor="answerTrue">
               {' '}
-              Привильный ответ
+              Правильный ответ
               <input className="form-control" id="answerTrue" onChange={getAnswerTrue} name="answerTrue" type="text" value={answerTrue} required />
             </label>
             <br />

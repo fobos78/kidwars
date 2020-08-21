@@ -12,7 +12,7 @@ body{
 .Footer{
   background: rgba(18, 56, 98, 0.911);
   color: white;
-  position: fixed;
+  position: fixed;;
 }
 .Main{
   padding: 70px
