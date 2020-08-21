@@ -1,14 +1,17 @@
 .Modal {
   width: 500px;
-  height: 250px;
+  height: 260px;
   position: absolute;
   left: 50%;
   top: 50%;
   margin-left: -250px;
-  margin-top: -150px;
+  margin-top: -170px;
   background-color: rgb(152, 180, 212);
   border-radius: 10px;
   padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 
 }
 
@@ -21,12 +24,17 @@
 }
 
 .TextError {
+  margin: -30px;
   color: rgb(190, 41, 41)
 }
 
 .bodyAllModal {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height:100%;
    background: rgba(0, 0, 0, 0.801);
+}
+.modalform{
+  display: flex;
+  flex-direction: column;
 }

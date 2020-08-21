@@ -3,20 +3,24 @@ body{
 }
 
 .Header{
-  background: rgba(121, 158, 201, 0.76);
+  background: rgba(18, 56, 98, 0.911);
   width: 100%;
   color: white;
   position: fixed;
 }
 
 .Footer{
-  background: rgba(103, 140, 182, 0.863);
+  background: rgba(18, 56, 98, 0.911);
   color: white;
-  position: fixed;
+  position: fixed;;
 }
 .Main{
-  padding: 60px
+  padding: 70px
 }
 .mainWindow{
-  padding-top: 50px !important
+  padding-top: 70px !important
+}
+
+a{
+  color: white !important
 }

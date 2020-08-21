@@ -1,17 +1,19 @@
 .About {
+  margin-top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 30px;
     margin: 30px;
-    width: 90%;
-    height: 85%;
-    border-radius: 15px;
+    width: 70%;
+    height: 75%;
+    border-radius: 4px;
     position: fixed;
     top: 40px;
-    left: 3%;
+    left: 15%;
     background-color: rgb(99, 126, 161);
+  font-size: 70%;
 }
 
 .boy2 {
@@ -36,10 +38,19 @@
   background-size: cover;
 }
 
-.close  {
+.exit2 {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  cursor: pointer;
+  margin-top: -58px;
+  font-size: 150%;
+}
+
+/* .close  {
   border-radius: 7px;
   width: 13%;
   height: 5%;
   background: rgb(8, 145, 236) linear-gradient(rgb(3, 255, 242),
    rgb(23, 91, 248));
-} 
+}  */
