@@ -39,6 +39,7 @@ function Contacts({ flag, setFlag }) {
               {' '}
               <div style={{ backgroundImage: 'url(/img/VK.png)' }} className="vk" />
             </a>
+            <a href="https://t.me/fobos111_bot" target="blank"><div style={{ backgroundImage: 'url(/img/telega.jpeg)' }} className="telega" /></a>
           </div>
         </Fadein>
       </div>

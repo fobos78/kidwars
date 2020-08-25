@@ -17,7 +17,7 @@ function Footer() {
     <div className="Footer">
       {flagCompany && <About flagCompany={flagCompany} setFlagCompany={setFlagCompany} />}
 
-      <button className="btn btn-outline-light" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false); setVideo(false); }}>O компании</button>
+      <button className="btn btn-outline-light" type="button" onClick={() => { setFlagCompany(!flagCompany); setFlag(false); setVideo(false); }}>O приложении</button>
       {flag && <Contacts flag={flag} setFlag={setFlag} />}
       &nbsp;&nbsp;
 
