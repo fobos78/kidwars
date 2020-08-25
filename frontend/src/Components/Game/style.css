@@ -1,33 +1,138 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+/* <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet"> */
+
 
 
 .blackboard{
-  height: 455px;
-  width: 650px;
-  background-image: url("./images/board2.png");
-  background-size: 100%;
-  padding: 28px;
+  height: 597px;
+  width: 1000px;
+  background-image: url("./images/board1.png");
+  background-size: contain;
+  padding-top: 50px;
+  padding-left: 135px;
+  padding-right: 125px;
+  padding-bottom: 115px;
   color: white;
-  font-size: 28px;
+  font-size: 40px;
   font-family: 'Bad Script', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -60px;
+  border-radius: 3px;
 }
 
 .image{
-  height: 300px;
+  height: 350px;
 }
 
 .needPlace{
   height: 50px;
 }
 
-/* div{
+.gamefield{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.jumbotron1{
+  width: 100%;
+  background-image: url("./images/back1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  /* background: linear-gradient(#5fbee4, #54bd65)  */
+}
+
+.statistic{
+  width: 400px;
+  height: 350px;
+  padding: 25px;
+  padding-top: 111px;
+  background-image: url("./images/pic5.png");
+  background-size: 100%;
+  position: relative;
+  border-radius: 10px;
+  margin-right: -500px;
+  color:black;
+  font-size: 36px;
+  font-family: 'Caveat', cursive;
+  text-align: center;
+}
+
+.answer{
+  z-index: 2;
+  margin: -25px;
+  width: 740px;
+  height: 500px;
+  background-image: url("./images/paper.png");
+  background-size: contain;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:70px;
+  font-family: 'Caveat', cursive;
+  font-size: 30px;
+  line-height: 110%;
+  
+}
+
+.boards{
+  display: flex;
+}
+
+.btn-info{
+  font-size: 30px !important;
+  margin-top: 25px;
+  border: 3px solid black !important;
+  background: rgb(183, 26, 26) !important;
+}
+
+.submitform{
+  font-size: 25px !important;
+  vertical-align:middle !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items:center !important;
+}
+.btn-secondary{
+  margin-bottom: 8px !important
+}
+
+.progress{
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.checkbutton{
+  height: 70px;
+  width: 71px;
+  background-color: rgba(0, 255, 255, 0);
+  background-image: url('./images/galochka_2.png');
+  background-size: 100%;
+  position: relative;
+  border: 0px;
+  margin-bottom:30px;
+  margin-left: 4px;
+  font-size: 50px;
+}
+
+/* 
+.checkbutton{
   font-family: 'Caveat', cursive;
   font-family: 'Caveat', cursive;
 } */

@@ -16,7 +16,6 @@ function Contacts({ flag, setFlag }) {
         <div onClick={() => setFlag(!flag)} className="exit"> &#10008; </div>
         <Fadein>
 
-          {/* <button className="close" onClick={() => setFlag(!flag)} type="button">Закрыть</button> */}
           <h1>Контакты</h1>
 
           <h3>Мы на карте Москвы</h3>
@@ -34,12 +33,13 @@ function Contacts({ flag, setFlag }) {
                 &#9875; Адрес:&nbsp; г.Москва, ул.Вавилова 1
               </div>
             </div>
-            <a href="https://instagram.com/elbrus.bootcamp?igshid=budzhhlq4hp5" target="blank"><div style={{ backgroundImage: 'url(/img/insta.jpeg)' }} className="insta" /></a>
+            <a href="https://instagram.com/elbrus.bootcamp?igshid=budzhhlq4hp5" target="blank"><div style={{ backgroundImage: 'url(/img/insta.png)' }} className="insta" /></a>
 
             <a href="https://vk.com/elbrusbootcamp" target="blank">
               {' '}
               <div style={{ backgroundImage: 'url(/img/VK.png)' }} className="vk" />
             </a>
+            <a href="https://t.me/fobos111_bot" target="blank"><div style={{ backgroundImage: 'url(/img/telega.jpeg)' }} className="telega" /></a>
           </div>
         </Fadein>
       </div>
